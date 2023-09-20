@@ -1,0 +1,299 @@
+<div class="container">
+  <div class="container">
+    <h4 class="text-left">Demand Info</h4>
+    <form [formGroup]="dataForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="DemandName">Demand Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="DemandName"
+              name="DemandName"
+              formControlName="DemandName"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('DemandName')?.hasError('required') &&
+                dataForm.get('DemandName')?.touched
+              "
+            >
+              Demand Name is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="Manager">Manager</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Manager"
+              name="Manager"
+              formControlName="Manager"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('Manager')?.hasError('required') &&
+                dataForm.get('Manager')?.touched
+              "
+            >
+              Manager Name is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="SkillSet">Skill Sets</label>
+            <input
+              type="text"
+              class="form-control"
+              id="SkillSet"
+              name="SkillSet"
+              formControlName="SkillSets"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('SkillSets')?.hasError('required') &&
+                dataForm.get('SkillSets')?.touched
+              "
+            >
+              Skill Sets are Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="MaxBudget">Max Budget</label>
+            <input
+              type="number"
+              class="form-control"
+              id="MaxBudget"
+              name="MaxBudget"
+              formControlName="MaxBudget"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('MaxBudget')?.hasError('required') &&
+                dataForm.get('MaxBudget')?.touched
+              "
+            >
+              Maximum Budget is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="MaxNoticePeriod">Max.Notice Period</label>
+            <input
+              type="number"
+              class="form-control"
+              id="MaxNoticePeriod"
+              name="MaxNoticePeriod"
+              formControlName="MaxNoticePeriod"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('MaxNoticePeriod')?.hasError('required') &&
+                dataForm.get('MaxNoticePeriod')?.touched
+              "
+            >
+              Maximum Notice Period is Required
+            </mat-error>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="AccountName">E Mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('email')?.hasError('required') &&
+                dataForm.get('email')?.touched
+              "
+            >
+              E Mail Id is Required
+            </mat-error>
+            <mat-error
+              *ngIf="
+                dataForm.get('email')?.hasError('email') &&
+                dataForm.get('email')?.touched
+              "
+            >
+              Invalid E-Mail Format
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="AccountName">Account Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="AccountName"
+              name="AccountName"
+              formControlName="AccountName"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('AccountName')?.hasError('required') &&
+                dataForm.get('AccountName')?.touched
+              "
+            >
+              Account Name is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="OpenPosition">Open Position</label>
+            <input
+              type="number"
+              class="form-control"
+              id="OpenPosition"
+              name="OpenPosition"
+              formControlName="OpenPosition"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('OpenPosition')?.hasError('required') &&
+                dataForm.get('OpenPosition')?.touched
+              "
+            >
+              Open Position is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="YearsOfExperience">Years Of Experience</label>
+            <input
+              type="number"
+              class="form-control"
+              id="YearsOfExperience"
+              name="YearsOfExperience"
+              formControlName="YearsOfExperience"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('YearsOfExperience')?.hasError('required') &&
+                dataForm.get('YearsOfExperience')?.touched
+              "
+            >
+              Years Of Experience is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="Location">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Location"
+              name="Location"
+              formControlName="Location"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('Location')?.hasError('required') &&
+                dataForm.get('Location')?.touched
+              "
+            >
+              Location is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="EmploymentType">Employment Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="EmploymentType"
+              name="EmploymentType"
+              formControlName="EmploymentType"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('EmploymentType')?.hasError('required') &&
+                dataForm.get('EmploymentType')?.touched
+              "
+            >
+              Employment Type is Required
+            </mat-error>
+          </div>
+          <div class="form-group">
+            <label for="Status">Status</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Status"
+              name="Status"
+              formControlName="Status"
+            />
+            <mat-error
+              *ngIf="
+                dataForm.get('Status')?.hasError('required') &&
+                dataForm.get('Status')?.touched
+              "
+            >
+              Status is Required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="submitForm()"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="clearForm()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>SI.No</th>
+        <th>Demand Name</th>
+        <th>Location</th>
+        <th>Manager</th>
+        <th>Max Budget</th>
+        <th>Status</th>
+        <th>Account Name</th>
+        <th>Skill Set</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataForm of formdataArray; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ dataForm.DemandName }}</td>
+        <td>{{ dataForm.Location }}</td>
+        <td>{{ dataForm.Manager }}</td>
+        <td>{{ dataForm.MaxBudget }}</td>
+        <td>{{ dataForm.Status }}</td>
+        <td>{{ dataForm.AccountName }}</td>
+        <td>{{ dataForm.SkillSets }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            (click)="editRecord(dataForm)"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="deleteRecord(dataForm.serialNo)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

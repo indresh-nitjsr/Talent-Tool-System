@@ -1,0 +1,32 @@
+<div class="container">
+  <header>
+    <button>Demand Logs</button>
+    <button>Candidate Logs</button>
+  </header>
+
+  <section id="log-section">
+    <div class="log-entry" *ngFor="let location of locations">
+      <div class="candidate-profile">
+        <!-- <p>LocationId: {{ location.LocationId }}</p> -->
+        <p>City: {{ location.City }}</p>
+        <p>State: {{ location.State }}</p>
+      </div>
+      <!-- <div class="candidate-profile">
+        <p>Candidate Name: {{ candidate.CandidateName }}</p>
+        <p>Email: {{ candidate.Email }}</p>
+        <p>Mobile: {{ candidate.Mobile }}</p>
+        <p>Employee Id: {{ candidate.EmployeeID }}</p>
+        <p>Location: {{ candidate.Location }}</p>
+      </div>
+      <div class="candidate-info">
+        <p>Skill Set: {{ candidate.SkillSet }}</p>
+        <p>Year of experience: {{ candidate.YearOfExperience }}</p>
+        <p>Current Company: {{ candidate.CurrentCompany }}</p>
+        <p>CTC: {{ candidate.CTC }}</p>
+        <p>ECTC: {{ candidate.ECTC }}</p>
+        <p>Notice Period: {{ candidate.NoticePeriod }}</p>
+        <p>Status: {{ candidate.Status }}</p>
+      </div>-->
+    </div>
+  </section>
+</div>

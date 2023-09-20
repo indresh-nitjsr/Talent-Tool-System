@@ -1,0 +1,50 @@
+  .container {
+    margin-top: 50px;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  button {
+    margin: auto;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.422);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .log-entry {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .log-entry p {
+    margin: 0;
+  }
+
+  .log-entry p:nth-child(odd) {
+    font-weight: bold;
+  }
