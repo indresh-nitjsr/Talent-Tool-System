@@ -43,7 +43,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 DemandId = 1,
                 DemandName = "Python Developer",
                 Email = "nexturn@gmail.com",
-                Account_Name = "abc",
+                Account_Name = "Amazon",
                 Manager = "Gunjan",
                 OpenPosition = 1,
                 Experience = 1,
@@ -52,6 +52,40 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 EmployeeType = "FTE",
                 Status = "Selected",
                 Skills = new[] {"Python", "Relationa Database"},
+                Location = "Hyderabad"
+            });
+
+            modelBuilder.Entity<Demand>().HasData(new Demand
+            {
+                DemandId = 2,
+                DemandName = "Java Developer",
+                Email = "nexturn@gmail.com",
+                Account_Name = "Amazon",
+                Manager = "Gunjan",
+                OpenPosition = 1,
+                Experience = 1,
+                MaxBudget = 10,
+                NoticePeriod = 2,
+                EmployeeType = "FTE",
+                Status = "Selected",
+                Skills = new[] { "Python", "Relationa Database" },
+                Location = "Hyderabad"
+            });
+
+            modelBuilder.Entity<Demand>().HasData(new Demand
+            {
+                DemandId = 3,
+                DemandName = ".Net Developer",
+                Email = "nexturn@gmail.com",
+                Account_Name = "Amazon",
+                Manager = "Gunjan",
+                OpenPosition = 1,
+                Experience = 1,
+                MaxBudget = 10,
+                NoticePeriod = 2,
+                EmployeeType = "FTE",
+                Status = "Selected",
+                Skills = new[] { "Python", "Relationa Database" },
                 Location = "Hyderabad"
             });
         }

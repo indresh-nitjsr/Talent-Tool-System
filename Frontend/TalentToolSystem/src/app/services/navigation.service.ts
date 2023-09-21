@@ -6,13 +6,18 @@ import { ILocation } from '../model';
   providedIn: 'root'
 })
 export class NavigationService {
-  baseUrl = "https://localhost:7046/api/Location/";
+  candidateBaseUrl = "https://localhost:7095/api/Candidate/";
+  demandBaseUrl = "https://localhost:7296/api/Demand/";
   constructor(private http: HttpClient) { }
 
+  GetAllCandidate() {
+    let url = this.candidateBaseUrl + 'getcandidatelist';
+    return this.http.get<any[]>(url);
 
-  GetAllLocations() {
-    let url = this.baseUrl + 'GetAllLocations';
-    var data = this.http.get<ILocation[]>(url);
-    return data;
+  }
+
+  GetAllDemand() {
+    let url = this.demandBaseUrl + 'getdemandlist';
+    return this.http.get<any[]>(url);
   }
 }

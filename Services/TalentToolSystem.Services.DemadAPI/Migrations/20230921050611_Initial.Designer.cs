@@ -12,8 +12,8 @@ using TalentToolSystem.Services.DemandAPI.Data;
 namespace TalentToolSystem.Services.DemandAPI.Migrations
 {
     [DbContext(typeof(DemandContext))]
-    [Migration("20230920080428_initial")]
-    partial class initial
+    [Migration("20230921050611_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,8 +83,40 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                         new
                         {
                             DemandId = 1,
-                            Account_Name = "abc",
+                            Account_Name = "Amazon",
                             DemandName = "Python Developer",
+                            Email = "nexturn@gmail.com",
+                            EmployeeType = "FTE",
+                            Experience = 1,
+                            Location = "Hyderabad",
+                            Manager = "Gunjan",
+                            MaxBudget = 10.0,
+                            NoticePeriod = 2,
+                            OpenPosition = 1,
+                            Skills = "Python,Relationa Database",
+                            Status = "Selected"
+                        },
+                        new
+                        {
+                            DemandId = 2,
+                            Account_Name = "Amazon",
+                            DemandName = "Java Developer",
+                            Email = "nexturn@gmail.com",
+                            EmployeeType = "FTE",
+                            Experience = 1,
+                            Location = "Hyderabad",
+                            Manager = "Gunjan",
+                            MaxBudget = 10.0,
+                            NoticePeriod = 2,
+                            OpenPosition = 1,
+                            Skills = "Python,Relationa Database",
+                            Status = "Selected"
+                        },
+                        new
+                        {
+                            DemandId = 3,
+                            Account_Name = "Amazon",
+                            DemandName = ".Net Developer",
                             Email = "nexturn@gmail.com",
                             EmployeeType = "FTE",
                             Experience = 1,

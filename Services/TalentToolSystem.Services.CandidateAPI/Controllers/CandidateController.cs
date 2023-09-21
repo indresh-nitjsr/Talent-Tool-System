@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TalentToolSystem.Services.CandidateAPI.Model;
 using TalentToolSystem.Services.CandidateAPI.Services;
+using TalentToolSystem.Services.UtilityAPI.Logger;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -61,7 +62,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Controllers
             {
                 return BadRequest();
             }
-
             try
             {
                 var result = await candidateService.CreateCandidate(candidate);
@@ -99,11 +99,17 @@ namespace TalentToolSystem.Services.CandidateAPI.Controllers
 
         // DELETE api/<CandidateController>/5
         [HttpDelete("deletecandidate")]
-        public async Task<int> Delete(int CandidateId)
-        {
+        public async Task<bool> Delete(int CandidateId)
+        {  
             try
             {
-                var response = await candidateService.DeleteCandidate(CandidateId);
+                IEnumerable<Candidate> candidates = await candidateService.GetCandidateById(CandidateId);
+                Candidate candidate = candidates.FirstOrDefault();
+                bool response = await candidateService.DeleteCandidate(CandidateId);
+                if (response)
+                {
+                    CustomLogger.Information(candidate);
+                }
                 return response;
             }
             catch

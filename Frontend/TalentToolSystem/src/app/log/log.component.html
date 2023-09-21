@@ -1,32 +1,62 @@
 <div class="container">
   <header>
-    <button>Demand Logs</button>
-    <button>Candidate Logs</button>
+    <button
+      type="button"
+      [ngClass]="{ active: view === 'demand' }"
+      (click)="view = 'demand'"
+    >
+      Demand Logs
+    </button>
+    <button
+      type="button"
+      [ngClass]="{ active: view === 'candidate' }"
+      (click)="view = 'candidate'"
+    >
+      Candidate Logs
+    </button>
   </header>
 
-  <section id="log-section">
-    <div class="log-entry" *ngFor="let location of locations">
-      <div class="candidate-profile">
-        <!-- <p>LocationId: {{ location.LocationId }}</p> -->
-        <p>City: {{ location.City }}</p>
-        <p>State: {{ location.State }}</p>
-      </div>
-      <!-- <div class="candidate-profile">
-        <p>Candidate Name: {{ candidate.CandidateName }}</p>
-        <p>Email: {{ candidate.Email }}</p>
-        <p>Mobile: {{ candidate.Mobile }}</p>
-        <p>Employee Id: {{ candidate.EmployeeID }}</p>
-        <p>Location: {{ candidate.Location }}</p>
-      </div>
-      <div class="candidate-info">
-        <p>Skill Set: {{ candidate.SkillSet }}</p>
-        <p>Year of experience: {{ candidate.YearOfExperience }}</p>
-        <p>Current Company: {{ candidate.CurrentCompany }}</p>
-        <p>CTC: {{ candidate.CTC }}</p>
-        <p>ECTC: {{ candidate.ECTC }}</p>
-        <p>Notice Period: {{ candidate.NoticePeriod }}</p>
-        <p>Status: {{ candidate.Status }}</p>
-      </div>-->
-    </div>
-  </section>
+  <hr />
+  <div *ngIf="view === 'candidate'">
+    <h1 class="styled-heading">Candidate Logs</h1>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Candidate Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of candidates">
+          <td>{{ candidate.candidateName }}</td>
+          <td>{{ candidate.email }}</td>
+          <td>{{ candidate.mobile }}</td>
+          <td>{{ candidate.location }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="view === 'demand'">
+    <h1 class="styled-heading">Demand Logs</h1>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Demand Name</th>
+          <th>Email</th>
+          <th>Manager</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demand of demands">
+          <td>{{ demand.demandName }}</td>
+          <td>{{ demand.email }}</td>
+          <td>{{ demand.manager }}</td>
+          <td>{{ demand.location }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

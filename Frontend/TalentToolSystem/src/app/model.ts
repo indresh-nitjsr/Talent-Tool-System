@@ -1,21 +1,37 @@
 export interface ICandidate {
-  CandidateId: number;
-  CandidateName: string;
-  Email: string;
-  Mobile: string;
-  CurrentCompany?: string | null;
-  SkillSet: string[] | null;
-  YearOfExperience: number;
-  Location: string;
-  CTC: number;
-  ECTC: number;
-  NoticePeriod: number;
-  EmployeeID: number;
-  Status: string;
+  candidateId: number;
+  candidateName: string;
+  email: string;
+  mobile: string;
+  currentCompany?: string | null;
+  skillSet: string[] | null;
+  yearOfExperience: number;
+  location: string;
+  ctc: number;
+  ectc: number;
+  noticePeriod: number;
+  employeeID: number;
+  status: string;
+}
+
+export interface IDemand {
+  demandId: number,
+  demandName: string,
+  email: string,
+  accountName: string,
+  manager: string,
+  openPosition: number,
+  experience: string,
+  maxBudget: DoubleRange,
+  noticePeriod: number,
+  employeeType: string,
+  status: string,
+  skills: [],
+  location: string
 }
 
 export interface ILocation {
-  LocationId: number,
-  City: string,
-  State: string;
+  locationId: number,
+  city: string,
+  state: string;
 }

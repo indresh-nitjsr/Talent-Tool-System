@@ -8,6 +8,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Services
         public Task<List<Candidate>> GetAllCandidate();
         public Task<IEnumerable<Candidate>> GetCandidateById(int CandidateId);
         public Task<int> UpdateCandidate(Candidate candidate);
-        public Task<int> DeleteCandidate(int CandidateId);
+        public Task<bool> DeleteCandidate(int CandidateId);
     }
 }

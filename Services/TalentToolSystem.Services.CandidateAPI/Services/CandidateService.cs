@@ -18,8 +18,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
         public async Task<int> CreateCandidate(Candidate candidate)
         {
             string skillsetParameter = string.Join(",", candidate.SkillSet);
-
-
             var parameters = new List<SqlParameter>
             {
                 new SqlParameter("@CandidateName", candidate.CandidateName),
@@ -36,29 +34,25 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 new SqlParameter("@Status", candidate.Status),
             };
 
-
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));
 
             var result = await _dbContext.Database.ExecuteSqlRawAsync(
                 $"exec AddNewCandidate {parameterNames}",
                 parameters.ToArray()
             );
-            
-
             return result;
         }
 
 
-
-
-        public async Task<int> DeleteCandidate(int CandidateId)
+        public async Task<bool> DeleteCandidate(int CandidateId)
         {
-            return await Task.Run(() => _dbContext.Database.ExecuteSqlInterpolatedAsync($"DeleteCandidate {CandidateId}"));
+            var results = await Task.Run(() => _dbContext.Database.ExecuteSqlInterpolatedAsync($"DeleteCandidate {CandidateId}"));
+            if(results > 0)
+            {
+                return true;
+            }
+            return false;
         }
-
-
-
-
 
         public async Task<List<Candidate>> GetAllCandidate()
         {
@@ -66,10 +60,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 .FromSqlRaw<Candidate>("GetAllCandidates")
                 .ToListAsync();
         }
-
-
-
-
 
 
         public async Task<IEnumerable<Candidate>> GetCandidateById(int CandidateId)
@@ -82,9 +72,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
 
             return candidateDetails;
         }
-
-
-
 
 
         public async Task<int> UpdateCandidate(Candidate candidate)
@@ -117,8 +104,6 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 $"exec UpdateCandidate {parameterNames}",
                 parameters.ToArray()
               );
-            
-
             return result;
         }
     } 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TalentToolSystem.Services.DemandAPI.Model;
 using TalentToolSystem.Services.DemandAPI.Service;
+using TalentToolSystem.Services.UtilityAPI.Logger;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -103,7 +104,13 @@ namespace TalentToolSystem.Services.DemandAPI.Controllers
         {
             try
             {
-                var response= await demandService.DeleteDemand(demandid);
+                IEnumerable<Demand> demands = await demandService.GetDemandById(demandid);
+                Demand demand = demands.FirstOrDefault();
+                var response = await demandService.DeleteDemand(demandid);
+                /*if (response)
+                {
+                    CustomLogger.Information(demand);
+                }*/
                 return response;
             }
             catch

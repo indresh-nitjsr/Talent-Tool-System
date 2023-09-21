@@ -46,7 +46,13 @@ namespace TalentToolSystem.Services.DemandAPI.Service
 
         public async Task<int> DeleteDemand(int DemandId)
         {
-            return await Task.Run(() => _dbContext.Database.ExecuteSqlInterpolatedAsync($"DeleteDemand {DemandId}"));
+            var result = await Task.Run(() => _dbContext.Database.ExecuteSqlInterpolatedAsync($"DeleteDemand {DemandId}"));
+            /*if(result > 0)
+            {
+                return true;
+            }
+            return false;*/
+            return result;
         }
 
         public async Task<List<Demand>> GetAllDemand()

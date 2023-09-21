@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace TalentToolSystem.Services.DemandAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +39,12 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
             migrationBuilder.InsertData(
                 table: "demands",
                 columns: new[] { "DemandId", "Account_Name", "DemandName", "Email", "EmployeeType", "Experience", "Location", "Manager", "MaxBudget", "NoticePeriod", "OpenPosition", "Skills", "Status" },
-                values: new object[] { 1, "abc", "Python Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" });
+                values: new object[,]
+                {
+                    { 1, "Amazon", "Python Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" },
+                    { 2, "Amazon", "Java Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" },
+                    { 3, "Amazon", ".Net Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" }
+                });
         }
 
         /// <inheritdoc />
