@@ -1,6 +1,6 @@
 export interface ICandidate {
   candidateId: number;
-  candidateName: string;
+  name: string;
   email: string;
   mobile: string;
   currentCompany?: string | null;
@@ -16,7 +16,7 @@ export interface ICandidate {
 
 export interface IDemand {
   demandId: number,
-  demandName: string,
+  name: string,
   email: string,
   accountName: string,
   manager: string,

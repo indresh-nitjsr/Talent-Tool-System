@@ -255,15 +255,16 @@
       </div>
     </form>
   </div>
-  <table class="table table-bordered table-hover">
+  <table class="styled-table">
     <thead>
       <tr>
         <th>SI.No</th>
-        <th>Candidate Name</th>
+        <th>Demand Name</th>
         <th>Location</th>
-        <th>ECTC</th>
+        <th>Manager</th>
+        <th>Max Budget</th>
         <th>Status</th>
-        <th>Email</th>
+        <th>Account Name</th>
         <th>Skill Set</th>
         <th>Action</th>
       </tr>
@@ -271,11 +272,12 @@
     <tbody>
       <tr *ngFor="let dataForm of formdataArray; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ dataForm.CandidateName }}</td>
+        <td>{{ dataForm.DemandName }}</td>
         <td>{{ dataForm.Location }}</td>
-        <td>{{ dataForm.ECTC }}</td>
+        <td>{{ dataForm.Manager }}</td>
+        <td>{{ dataForm.MaxBudget }}</td>
         <td>{{ dataForm.Status }}</td>
-        <td>{{ dataForm.Email }}</td>
+        <td>{{ dataForm.AccountName }}</td>
         <td>{{ dataForm.SkillSets }}</td>
         <td>
           <button

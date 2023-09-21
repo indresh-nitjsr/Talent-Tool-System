@@ -30,7 +30,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let candidate of candidates">
-          <td>{{ candidate.candidateName }}</td>
+          <td>{{ candidate.name }}</td>
           <td>{{ candidate.email }}</td>
           <td>{{ candidate.mobile }}</td>
           <td>{{ candidate.location }}</td>
@@ -51,7 +51,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let demand of demands">
-          <td>{{ demand.demandName }}</td>
+          <td>{{ demand.name }}</td>
           <td>{{ demand.email }}</td>
           <td>{{ demand.manager }}</td>
           <td>{{ demand.location }}</td>

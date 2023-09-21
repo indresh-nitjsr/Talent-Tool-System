@@ -17,10 +17,33 @@ namespace TalentToolSystem.Services.UtilityAPI.Controllers
         }
 
         [HttpGet("GetAllCandidateLogs")]
-        public IActionResult GetAllCandidateLogs()
+        public async Task<object> GetCandidate()
         {
-            var result = _logRepository.GetAllCandidateLogs();
-            return Ok(result);
+            IEnumerable<CandidateLog> logs;
+            try
+            {
+                logs = await _logRepository.GetAllCandidateLogs();
+                return logs;
+            }
+            catch (Exception ex)
+            {
+                return new List<string>() { ex.ToString() };
+            }
+        }
+
+        [HttpGet("GetAllDemandLogs")]
+        public async Task<object> GetDemand()
+        {
+            IEnumerable<DemandLog> logs;
+            try
+            {
+                logs = await _logRepository.GetAllDemandLogs();
+                return logs;
+            }
+            catch (Exception ex)
+            {
+                return new List<string>() { ex.ToString() };
+            }
         }
     }
 }
