@@ -3,6 +3,7 @@ using TalentToolSystem.Services.Search.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient();
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<ISearchService, SearchService>();
@@ -18,6 +19,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 

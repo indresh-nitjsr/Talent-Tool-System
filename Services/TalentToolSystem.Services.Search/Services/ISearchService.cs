@@ -4,6 +4,6 @@ namespace TalentToolSystem.Services.Search.Services
 {
     public interface ISearchService
     {
-        public Task<List<ResponseDTO?>> SearchCandidates(RequestDTO requestDTO);
+        public List<ResponseDTO?> SearchCandidates(RequestDTO requestDTO);
     }
 }

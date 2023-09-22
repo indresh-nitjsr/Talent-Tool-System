@@ -46,8 +46,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 CTC = 10,
                 ECTC = 10,
                 NoticePeriod = 10,
-                EmployeeID = 101,
-                Status = "Selected"
+                ReferralId = 101,
+                Status = "Selected",
+                Manager = "Gunjan",
+                Account = "Salesforce"
             });
 
             modelBuilder.Entity<Candidate>().HasData(new Candidate
@@ -63,8 +65,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 CTC = 10,
                 ECTC = 10,
                 NoticePeriod = 10,
-                EmployeeID = 101,
-                Status = "Selected"
+                ReferralId = 101,
+                Status = "Selected",
+                Manager = "Gunjan",
+                Account = "Salesforce"
             });
 
             modelBuilder.Entity<Candidate>().HasData(new Candidate
@@ -80,8 +84,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 CTC = 10,
                 ECTC = 10,
                 NoticePeriod = 10,
-                EmployeeID = 101,
-                Status = "Selected"
+                ReferralId = 101,
+                Status = "Selected",
+                Manager = "Gunjan",
+                Account = "Amazon"
             });
         }
         

@@ -35,8 +35,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Model
 
         public int NoticePeriod { get; set; }
        
-        public int EmployeeID { get; set; }
+        public int ReferralId { get; set; }
 
         public string Status { get; set; }
+        public string Manager { get; set; }
+        public string Account { get; set; }
     }
 }
