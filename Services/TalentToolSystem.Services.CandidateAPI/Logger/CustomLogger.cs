@@ -54,8 +54,10 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
                 new SqlColumn { DataType = SqlDbType.Decimal, ColumnName = "CTC", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Decimal, ColumnName = "ECTC", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "NoticePeriod", AllowNull = false },
-                new SqlColumn { DataType = SqlDbType.Int, ColumnName = "EmployeeID", AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.Int, ColumnName = "ReferralId", AllowNull = true },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Status", DataLength = 50, AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Manager", DataLength = 50, AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Account", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.DateTime2, ColumnName = "TimeStamp", AllowNull = false },
             };
             return columnOptions;
@@ -69,10 +71,10 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             }
             else
             {
-                Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{EmployeeID}{Status}{TimeStamp}",
+                Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{ReferralId}{Status}{Manager}{Account}{TimeStamp}",
                     candidate.CandidateId, candidate.CandidateName, candidate.Email, candidate.Mobile, candidate.CurrentCompany,
                     candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod, 
-                    candidate.EmployeeID, candidate.Status, DateTime.Now
+                    candidate.ReferralId, candidate.Status,candidate.Manager, candidate.Account, DateTime.Now
                     );
                 //Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{EmployeeID}{Status}{TimeStamp}",
                 //     candidate.CandidateId, candidate.CandidateName, candidate.Mobile, candidate.Email, candidate.CurrentCompany,

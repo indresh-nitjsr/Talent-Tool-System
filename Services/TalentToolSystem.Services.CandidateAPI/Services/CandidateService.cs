@@ -30,8 +30,11 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 new SqlParameter("@CTC", candidate.CTC),
                 new SqlParameter("@ECTC", candidate.ECTC),
                 new SqlParameter("@NoticePeriod", candidate.NoticePeriod),
-                new SqlParameter("@EmployeeID", candidate.EmployeeID),
+                new SqlParameter("@ReferralId", candidate.ReferralId),
                 new SqlParameter("@Status", candidate.Status),
+                new SqlParameter("@Manager", candidate.Manager),
+                new SqlParameter("@Account", candidate.Account),
+
             };
 
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));
@@ -93,8 +96,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 new SqlParameter("@CTC", candidate.CTC),
                 new SqlParameter("@ECTC", candidate.ECTC),
                 new SqlParameter("@NoticePeriod", candidate.NoticePeriod),
-                new SqlParameter("@EmployeeID", candidate.EmployeeID),
+                new SqlParameter("@EmployeeID", candidate.ReferralId),
                 new SqlParameter("@Status", candidate.Status),
+                new SqlParameter("@Manager", candidate.Manager),
+                new SqlParameter("@Account", candidate.Account),
 
             };
 

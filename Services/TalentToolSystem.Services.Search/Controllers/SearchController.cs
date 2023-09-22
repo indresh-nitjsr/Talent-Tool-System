@@ -19,7 +19,7 @@ namespace TalentToolSystem.Services.Search.Controllers
         {
             try
             {
-                List<ResponseDTO> results = await _searchService.SearchCandidates(requestDTO);
+                List<ResponseDTO> results = _searchService.SearchCandidates(requestDTO);
                 return Ok(results);
             }
             catch (Exception ex)
