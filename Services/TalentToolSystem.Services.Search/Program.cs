@@ -2,6 +2,13 @@ using TalentToolSystem.Services.Search.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 // Add services to the container.
 builder.Services.AddHttpClient();
 
@@ -20,11 +27,11 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 }
 
-app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
