@@ -14,8 +14,8 @@ namespace TalentToolSystem.Services.Search.Controllers
             _searchService = searchService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SearchCandidates(RequestDTO requestDTO)
+        [HttpGet]
+        public async Task<IActionResult> SearchCandidates([FromQuery] RequestDTO requestDTO)
         {
             try
             {
