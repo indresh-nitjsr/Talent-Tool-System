@@ -14,7 +14,7 @@ export class LogComponent implements OnInit {
   candidates: ICandidate[] = [
     {
       candidateId: 1,
-      name: 'Indresh Kumar Maurya',
+      candidateName: 'Indresh Kumar Maurya',
       email: 'indresh@gmail.com',
       mobile: '7800199454',
       currentCompany: 'Nexturn',
@@ -31,7 +31,7 @@ export class LogComponent implements OnInit {
     },
     {
       candidateId: 2,
-      name: 'Shobhit Singh',
+      candidateName: 'Shobhit Singh',
       email: 'shobhit@gmail.com',
       mobile: '9669047175',
       currentCompany: 'Nexturn',
@@ -48,7 +48,7 @@ export class LogComponent implements OnInit {
     },
     {
       candidateId: 3,
-      name: 'Abuzar Nasim',
+      candidateName: 'Abuzar Nasim',
       email: 'abuzar@gmail.com',
       mobile: '7878787878',
       currentCompany: 'Nexturn',
@@ -65,7 +65,7 @@ export class LogComponent implements OnInit {
     },
     {
       candidateId: 4,
-      name: 'Sahaja',
+      candidateName: 'Sahaja',
       email: 'sahaja@gmail.com',
       mobile: '7800941956',
       currentCompany: 'Nexturn',
