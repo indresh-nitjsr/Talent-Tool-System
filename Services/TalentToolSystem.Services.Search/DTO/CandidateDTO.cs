@@ -1,6 +1,6 @@
 ﻿namespace TalentToolSystem.Services.Search.DTO
 {
-    public class ResponseDTO
+    public class CandidateDTO
     {
         public int CandidateId { get; set; }
         public string CandidateName { get; set; }
