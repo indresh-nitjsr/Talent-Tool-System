@@ -16,15 +16,15 @@ export class LogComponent implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.navigationService.GetAllCandidateLogs().subscribe((res: any) => {
-      // console.log(res);
-      this.candidates = res;
-    });
+    // this.navigationService.GetAllCandidateLogs().subscribe((res: any) => {
+    //   // console.log(res);
+    //   this.candidates = res;
+    // });
 
-    this.navigationService.GetAllDemandLogs().subscribe((res: any) => {
-      this.demands = res;
-      console.log(res);
+    // this.navigationService.GetAllDemandLogs().subscribe((res: any) => {
+    //   this.demands = res;
+    //   console.log(res);
 
-    });
+    // });
   }
 }

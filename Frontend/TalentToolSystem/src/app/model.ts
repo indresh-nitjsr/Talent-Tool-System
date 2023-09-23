@@ -1,6 +1,6 @@
 export interface ICandidate {
   candidateId: number;
-  name: string;
+  candidateName: string;
   email: string;
   mobile: string;
   currentCompany?: string | null;
@@ -15,23 +15,23 @@ export interface ICandidate {
 }
 
 export interface IDemand {
-  demandId: number,
-  name: string,
-  email: string,
-  accountName: string,
-  manager: string,
-  openPosition: number,
-  experience: string,
-  maxBudget: DoubleRange,
-  noticePeriod: number,
-  employeeType: string,
-  status: string,
-  skills: [],
-  location: string
+  demandId: number;
+  name: string;
+  email: string;
+  accountName: string;
+  manager: string;
+  openPosition: number;
+  experience: string;
+  maxBudget: DoubleRange;
+  noticePeriod: number;
+  employeeType: string;
+  status: string;
+  skills: [];
+  location: string;
 }
 
 export interface ILocation {
-  locationId: number,
-  city: string,
+  locationId: number;
+  city: string;
   state: string;
 }

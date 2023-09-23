@@ -1,106 +1,74 @@
 import { Component, OnInit } from '@angular/core';
 import { ICandidate } from '../model';
 import { NavigationService } from '../services/navigation.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-candidate',
   templateUrl: './candidate.component.html',
   styleUrls: ['./candidate.component.css'],
 })
-export class CandidateComponent implements OnInit {
-  // candidate: ICandidate = {
-  //   CandidateId: 0,
-  //   CandidateName: '',
-  //   Email: '',
-  //   Mobile: '',
-  //   CurrentCompany: '',
-  //   SkillSet: [],
-  //   YearOfExperience: 0,
-  //   Location: '',
-  //   CTC: 0,
-  //   ECTC: 0,
-  //   NoticePeriod: 0,
-  //   EmployeeID: 0,
-  //   Status: '',
-  // };
 
+export class CandidateComponent implements OnInit {
   dataForm!: FormGroup;
   formdataArray: any = ([] = []);
   serialNo = 1;
   selectedRecord: any = null;
 
-  constructor(private fb: FormBuilder) { }
+// ******************************************
+  view: 'candidate' = 'candidate';
+  candidates: ICandidate[] = [];
+  candidate: ICandidate = {
+  candidateId: 0,
+  candidateName: '',
+  email: '',
+  mobile: '',
+  currentCompany: '',
+  skillSet: [],
+  yearOfExperience: 0,
+  location: '',
+  ctc: 0,
+  ectc: 0,
+  noticePeriod: 0,
+  employeeID: 0,
+  status: '',
+};
+
+  constructor(private navigationService: NavigationService,private fb: FormBuilder) {}
 
   ngOnInit(): void {
+
     this.dataForm = this.fb.group({
       CandidateName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       Mobile: ['', Validators.required],
       CurrentCompany: ['', Validators.required],
-      SkillSets: ['', Validators.required],
+      // SkillSets: ['', Validators.required],
+      SkillSets: this.fb.array([]),
       YearsOfExperience: ['', Validators.required],
       CTC: ['', Validators.required],
       ECTC: ['', Validators.required],
       Location: ['', Validators.required],
-      MaxNoticePeriod: ['', Validators.required],
       EmployeeID: ['', Validators.required],
       Status: ['', Validators.required],
     });
+    this.navigationService.GetAllCandidate().subscribe((res: any) => {
+      this.candidates = res;
+    }); 
   }
-
-
-  submitForm() {
-    if (this.dataForm.valid) {
-      const formData = this.dataForm.value;
-      console.log(formData);
-      if (this.selectedRecord) {
-        const index = this.formdataArray.findIndex(
-          (record: any) => record === this.selectedRecord
-        );
-        if (index !== -1) {
-          this.formdataArray[index] = { ...formData };
-          this.selectedRecord = null;
-        }
-      } else {
-        formData.serialNo = this.serialNo++;
-        this.formdataArray.push({ ...formData });
-      }
-      console.log(this.formdataArray);
-      this.dataForm.reset();
-    } else {
-      console.log('Please fill all the mandatory fields');
-    }
+  DeleteCandidate(candidate:ICandidate){
+    this.navigationService.DeleteCandidate(candidate).subscribe((res:any)=>{
+      this.candidates=res;
+    }); 
   }
-
-  clearForm() {
-    this.dataForm.reset();
+  CreateCandidate(candidate: ICandidate) {
+    this.navigationService.CreateCandidate(candidate).subscribe((res: any) => {
+        this.candidates=res;
+    });   
   }
-  editRecord(record: any) {
-    console.log('Editing Record', record);
-    this.selectedRecord = record;
-    this.dataForm.patchValue({
-      CandidateName: this.selectedRecord.CandidateName,
-      email: this.selectedRecord.email,
-      Mobile: this.selectedRecord.Mobile,
-      CurrentCompany: this.selectedRecord.CurrentCompany,
-      SkillSets: this.selectedRecord.SkillSets,
-      YearsOfExperience: this.selectedRecord.YearsOfExperience,
-      CTC: this.selectedRecord.CTC,
-      ECTC: this.selectedRecord.ECTC,
-      Location: this.selectedRecord.Location,
-      MaxNoticePeriod: this.selectedRecord.MaxNoticePeriod,
-      EmployeeID: this.selectedRecord.EmployeeID,
-      Status: this.selectedRecord.Status,
-    });
-  }
-
-  deleteRecord(serialNo: number) {
-    console.log('Deleting Record', serialNo);
-    const index = this.formdataArray.findIndex(
-      (record: any) => record.serialNo === serialNo
-    );
-    if (index !== -1) {
-      this.formdataArray.splice(index, 1);
-    }
-  }
+  UpdateCandidate(candidate:ICandidate){
+    this.navigationService.UpdateCandidate(candidate).subscribe((UpdateCandidate:ICandidate)=>{
+      this.candidate=UpdateCandidate;
+    }); 
+  } 
+  
 }
