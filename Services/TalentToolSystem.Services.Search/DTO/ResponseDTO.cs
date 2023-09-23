@@ -13,19 +13,10 @@
         public decimal CTC { get; set; }
         public decimal ECTC { get; set; }
         public int NoticePeriod { get; set; }
-        public int EmployeeID { get; set; }
+        public int ReferralId { get; set; }
+        public string Manager { get; set; }
+        public string Account { get; set; }
         public string Status { get; set; }
 
     }
 }
-
-    /* public string Account { get; set; }
-        public string CandidateName { get; set; }
-        public string Manager { get; set; }
-        public string Status { get; set; }
-        public string CandidateEmailId { get; set; }
-        public long MobileNo { get; set; }
-        public string Location { get; set; }
-        public int CTC { get; set; }
-        public int ECTC { get; set; }
-    */

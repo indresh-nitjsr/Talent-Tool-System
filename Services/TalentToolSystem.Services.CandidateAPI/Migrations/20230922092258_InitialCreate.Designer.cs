@@ -11,8 +11,8 @@ using TalentToolSystem.Services.CandidateAPI.Data;
 namespace TalentToolSystem.Services.CandidateAPI.Migrations
 {
     [DbContext(typeof(CandidateContext))]
-    [Migration("20230921044446_Initial")]
-    partial class Initial
+    [Migration("20230922092258_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CandidateId"));
 
+                    b.Property<string>("Account")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("CTC")
                         .HasColumnType("decimal(18,2)");
 
@@ -50,10 +54,11 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Manager")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -62,6 +67,9 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NoticePeriod")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReferralId")
                         .HasColumnType("int");
 
                     b.Property<string>("SkillSet")
@@ -83,15 +91,17 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                         new
                         {
                             CandidateId = 1,
+                            Account = "Salesforce",
                             CTC = 10m,
                             CandidateName = "Indresh Kumar Maurya",
                             CurrentCompany = "Nexturn",
                             ECTC = 10m,
                             Email = "indresh@gmail.com",
-                            EmployeeID = 101,
                             Location = "Mirzapur",
+                            Manager = "Gunjan",
                             Mobile = "7823637281",
                             NoticePeriod = 10,
+                            ReferralId = 101,
                             SkillSet = "C++,.Net,Sql Server",
                             Status = "Selected",
                             YearOfExperience = 1
@@ -99,15 +109,17 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                         new
                         {
                             CandidateId = 2,
+                            Account = "Salesforce",
                             CTC = 10m,
                             CandidateName = "Shobhit Kumar Singh",
                             CurrentCompany = "Nexturn",
                             ECTC = 10m,
                             Email = "shobhit@gmail.com",
-                            EmployeeID = 101,
                             Location = "Patna",
+                            Manager = "Gunjan",
                             Mobile = "7823637281",
                             NoticePeriod = 10,
+                            ReferralId = 101,
                             SkillSet = "C++,.Net,Sql Server",
                             Status = "Selected",
                             YearOfExperience = 1
@@ -115,15 +127,17 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                         new
                         {
                             CandidateId = 3,
+                            Account = "Amazon",
                             CTC = 10m,
                             CandidateName = "Abuzar Nasim",
                             CurrentCompany = "Nexturn",
                             ECTC = 10m,
                             Email = "abuzar@gmail.com",
-                            EmployeeID = 101,
                             Location = "Ranchi",
+                            Manager = "Gunjan",
                             Mobile = "7823637281",
                             NoticePeriod = 10,
+                            ReferralId = 101,
                             SkillSet = "C++,.Net,Sql Server",
                             Status = "Selected",
                             YearOfExperience = 1

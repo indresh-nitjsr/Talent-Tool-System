@@ -7,7 +7,7 @@
 namespace TalentToolSystem.Services.CandidateAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,8 +28,10 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
                     CTC = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ECTC = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NoticePeriod = table.Column<int>(type: "int", nullable: false),
-                    EmployeeID = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ReferralId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Manager = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Account = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -38,12 +40,12 @@ namespace TalentToolSystem.Services.CandidateAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Candidates",
-                columns: new[] { "CandidateId", "CTC", "CandidateName", "CurrentCompany", "ECTC", "Email", "EmployeeID", "Location", "Mobile", "NoticePeriod", "SkillSet", "Status", "YearOfExperience" },
+                columns: new[] { "CandidateId", "Account", "CTC", "CandidateName", "CurrentCompany", "ECTC", "Email", "Location", "Manager", "Mobile", "NoticePeriod", "ReferralId", "SkillSet", "Status", "YearOfExperience" },
                 values: new object[,]
                 {
-                    { 1, 10m, "Indresh Kumar Maurya", "Nexturn", 10m, "indresh@gmail.com", 101, "Mirzapur", "7823637281", 10, "C++,.Net,Sql Server", "Selected", 1 },
-                    { 2, 10m, "Shobhit Kumar Singh", "Nexturn", 10m, "shobhit@gmail.com", 101, "Patna", "7823637281", 10, "C++,.Net,Sql Server", "Selected", 1 },
-                    { 3, 10m, "Abuzar Nasim", "Nexturn", 10m, "abuzar@gmail.com", 101, "Ranchi", "7823637281", 10, "C++,.Net,Sql Server", "Selected", 1 }
+                    { 1, "Salesforce", 10m, "Indresh Kumar Maurya", "Nexturn", 10m, "indresh@gmail.com", "Mirzapur", "Gunjan", "7823637281", 10, 101, "C++,.Net,Sql Server", "Selected", 1 },
+                    { 2, "Salesforce", 10m, "Shobhit Kumar Singh", "Nexturn", 10m, "shobhit@gmail.com", "Patna", "Gunjan", "7823637281", 10, 101, "C++,.Net,Sql Server", "Selected", 1 },
+                    { 3, "Amazon", 10m, "Abuzar Nasim", "Nexturn", 10m, "abuzar@gmail.com", "Ranchi", "Gunjan", "7823637281", 10, 101, "C++,.Net,Sql Server", "Selected", 1 }
                 });
         }
 
