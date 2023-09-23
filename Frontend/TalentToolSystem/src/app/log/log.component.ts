@@ -14,33 +14,37 @@ export class LogComponent implements OnInit {
   candidates: ICandidate[] = [
     {
       candidateId: 1,
-      name: 'Indresh Kumar',
+      name: 'Indresh Kumar Maurya',
       email: 'indresh@gmail.com',
-      mobile: '7878787878',
+      mobile: '7800199454',
       currentCompany: 'Nexturn',
-      skillSet: ["C", "C++", "Python"],
+      skillSet: "C, C++,Python",
       yearOfExperience: 1,
       location: 'Mirzapur',
       ctc: 10,
       ectc: 10,
       noticePeriod: 15,
-      employeeID: 101,
+      referralId: 20220101,
       status: 'Selected',
+      account: "Saleforce",
+      manager: "Gunjan"
     },
     {
       candidateId: 2,
-      name: 'Shobhit Kumar',
+      name: 'Shobhit Singh',
       email: 'shobhit@gmail.com',
-      mobile: '7878787878',
+      mobile: '9669047175',
       currentCompany: 'Nexturn',
-      skillSet: ["C", "C++", "Python"],
+      skillSet: "C, C++,Python",
       yearOfExperience: 1,
       location: 'Patna',
       ctc: 10,
       ectc: 10,
       noticePeriod: 15,
-      employeeID: 101,
+      referralId: 20220102,
       status: 'Selected',
+      account: "Amazon",
+      manager: "Bhaskar"
     },
     {
       candidateId: 3,
@@ -48,36 +52,40 @@ export class LogComponent implements OnInit {
       email: 'abuzar@gmail.com',
       mobile: '7878787878',
       currentCompany: 'Nexturn',
-      skillSet: ["C", "C++", "Python"],
+      skillSet: "C, C++,Python",
       yearOfExperience: 1,
       location: 'Ranchi',
       ctc: 10,
       ectc: 10,
       noticePeriod: 15,
-      employeeID: 101,
+      referralId: 20220103,
       status: 'Selected',
+      account: "Salesforce",
+      manager: "Gunjan"
     },
     {
       candidateId: 4,
       name: 'Sahaja',
       email: 'sahaja@gmail.com',
-      mobile: '7878787878',
+      mobile: '7800941956',
       currentCompany: 'Nexturn',
-      skillSet: ["C", "C++", "Python"],
+      skillSet: "C, C++, Python",
       yearOfExperience: 1,
-      location: 'Jh',
+      location: 'Jharkhand',
       ctc: 10,
       ectc: 10,
       noticePeriod: 15,
-      employeeID: 101,
+      referralId: 101,
       status: 'Selected',
+      account: "Flipkart",
+      manager: "Gunjan"
     }
   ];
   demands: IDemand[] = [
     {
       demandId: 1,
       name: 'Python Developer',
-      email: 'abc@nexturn.com',
+      email: 'amazon@nexturn.com',
       accountName: 'Amazon',
       manager: "Gunjan",
       openPosition: 3,
@@ -89,9 +97,23 @@ export class LogComponent implements OnInit {
       location: "Hyderabad"
     },
     {
-      demandId: 1,
-      name: 'Python Developer',
-      email: 'abc@nexturn.com',
+      demandId: 2,
+      name: 'Java Developer',
+      email: 'slaesforce@nexturn.com',
+      accountName: 'Salesforce',
+      manager: "Gunjan",
+      openPosition: 3,
+      experience: '1',
+      noticePeriod: 2,
+      employeeType: "FTE",
+      status: "Active",
+      skills: [],
+      location: "Bengaluru"
+    },
+    {
+      demandId: 3,
+      name: '.Net Developer',
+      email: 'amazon@nexturn.com',
       accountName: 'Amazon',
       manager: "Gunjan",
       openPosition: 3,
@@ -103,10 +125,10 @@ export class LogComponent implements OnInit {
       location: "Hyderabad"
     },
     {
-      demandId: 1,
-      name: 'Python Developer',
-      email: 'abc@nexturn.com',
-      accountName: 'Amazon',
+      demandId: 4,
+      name: 'Frontend Developer',
+      email: 'flipkart@nexturn.com',
+      accountName: 'Flipkart',
       manager: "Gunjan",
       openPosition: 3,
       experience: '1',
@@ -114,38 +136,29 @@ export class LogComponent implements OnInit {
       employeeType: "FTE",
       status: "Active",
       skills: [],
-      location: "Hyderabad"
-    },
-    {
-      demandId: 1,
-      name: 'Python Developer',
-      email: 'abc@nexturn.com',
-      accountName: 'Amazon',
-      manager: "Gunjan",
-      openPosition: 3,
-      experience: '1',
-      noticePeriod: 2,
-      employeeType: "FTE",
-      status: "Active",
-      skills: [],
-      location: "Hyderabad"
+      location: "Noida"
     }
   ];
 
   isEmpty = true;
   constructor(private navigationService: NavigationService) { }
 
+  message = "This is a dummy Data";
+  isCandidateNull = true;
+  isDemandNull = true
   ngOnInit(): void {
     this.navigationService.GetAllCandidateLogs().subscribe((res: any) => {
-      this.candidates = [];
-      console.log(res);
-
-      this.candidates = res;
+      if (res && res.length > 0) {
+        this.isCandidateNull = false;
+        this.candidates = res;
+      }
     });
 
     this.navigationService.GetAllDemandLogs().subscribe((res: any) => {
-      this.demands = [];
-      this.demands = res;
+      if (res && res.length > 0) {
+        this.isDemandNull = false;
+        this.demands = res;
+      }
     });
   }
 }

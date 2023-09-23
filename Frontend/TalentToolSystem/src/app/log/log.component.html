@@ -19,6 +19,7 @@
   <hr />
   <div *ngIf="view === 'candidate'">
     <h1 class="styled-heading">Candidate Logs</h1>
+    <h3 [ngStyle]="{ color: 'red' }" *ngIf="isCandidateNull">*{{ message }}</h3>
     <table class="styled-table">
       <thead>
         <tr>
@@ -40,6 +41,7 @@
   </div>
   <div *ngIf="view === 'demand'">
     <h1 class="styled-heading">Demand Logs</h1>
+    <h3 [ngStyle]="{ color: 'red' }" *ngIf="isDemandNull">*{{ message }}</h3>
     <table class="styled-table">
       <thead>
         <tr>
