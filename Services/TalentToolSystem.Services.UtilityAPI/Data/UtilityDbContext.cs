@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using TalentToolSystem.Services.UtilityAPI.Models;
@@ -37,8 +38,6 @@ namespace TalentToolSystem.Services.UtilityAPI.Data
                 City = "Mirzapur",
                 State = "UP"
             });
-
-
         }
     }
 }

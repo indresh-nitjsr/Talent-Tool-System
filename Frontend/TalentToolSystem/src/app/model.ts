@@ -4,14 +4,16 @@ export interface ICandidate {
   email: string;
   mobile: string;
   currentCompany?: string | null;
-  skillSet: string[] | null;
+  skillSet: string;
   yearOfExperience: number;
   location: string;
   ctc: number;
   ectc: number;
   noticePeriod: number;
-  employeeID: number;
+  referralId: number;
   status: string;
+  manager: string
+  account: string;
 }
 
 export interface IDemand {
@@ -22,7 +24,6 @@ export interface IDemand {
   manager: string,
   openPosition: number,
   experience: string,
-  maxBudget: DoubleRange,
   noticePeriod: number,
   employeeType: string,
   status: string,

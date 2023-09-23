@@ -38,6 +38,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Repository
                 {
                     var log = new CandidateLog()
                     {
+                        CandidateId = (int)reader["CandidateId"],
                         Name = (string)reader["Name"],
                         Email = (string)reader["Email"],
                         Mobile = (string)reader["Mobile"],
@@ -47,8 +48,10 @@ namespace TalentToolSystem.Services.UtilityAPI.Repository
                         CTC = (Decimal)reader["CTC"],
                         ECTC = (Decimal)reader["ECTC"],
                         NoticePeriod = (int)reader["NoticePeriod"],
-                        EmployeeID = (int)reader["EmployeeID"],
+                        ReferralId = (int)reader["ReferralId"],
                         Status = (string)reader["Status"],
+                        Manager = (string)reader["Status"],
+                        Account = (string)reader["Status"],
                         TimeStamp = (DateTime)reader["TimeStamp"],
                     };
                     logs.Add(log);

@@ -17,14 +17,14 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
 
         public async Task<int> CreateCandidate(Candidate candidate)
         {
-            string skillsetParameter = string.Join(",", candidate.SkillSet);
+            //string skillsetParameter = string.Join(",", candidate.SkillSet);
             var parameters = new List<SqlParameter>
             {
                 new SqlParameter("@CandidateName", candidate.CandidateName),
                 new SqlParameter("@Email", candidate.Email),
                 new SqlParameter("@Mobile", candidate.Mobile),
                 new SqlParameter("@CurrentCompany", candidate.CurrentCompany),
-                new SqlParameter("@SkillSet", skillsetParameter),
+                new SqlParameter("@SkillSet", candidate.SkillSet),
                 new SqlParameter("@YearOfExperience", candidate.YearOfExperience),
                 new SqlParameter("@Location", candidate.Location),
                 new SqlParameter("@CTC", candidate.CTC),
@@ -80,7 +80,7 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
         public async Task<int> UpdateCandidate(Candidate candidate)
         {
 
-            string skillsetParameter = string.Join(",", candidate.SkillSet);
+            //string skillsetParameter = string.Join(",", candidate.SkillSet);
 
             var parameters = new List<SqlParameter>
             {
@@ -90,13 +90,13 @@ namespace TalentToolSystem.Services.CandidateAPI.Service
                 new SqlParameter("@Email", candidate.Email),
                 new SqlParameter("@Mobile", candidate.Mobile),
                 new SqlParameter("@CurrentCompany", candidate.CurrentCompany),
-                new SqlParameter("@SkillSet", skillsetParameter),
+                new SqlParameter("@SkillSet", candidate.SkillSet),
                 new SqlParameter("@YearOfExperience", candidate.YearOfExperience),
                 new SqlParameter("@Location", candidate.Location),
                 new SqlParameter("@CTC", candidate.CTC),
                 new SqlParameter("@ECTC", candidate.ECTC),
                 new SqlParameter("@NoticePeriod", candidate.NoticePeriod),
-                new SqlParameter("@EmployeeID", candidate.ReferralId),
+                new SqlParameter("@ReferralId", candidate.ReferralId),
                 new SqlParameter("@Status", candidate.Status),
                 new SqlParameter("@Manager", candidate.Manager),
                 new SqlParameter("@Account", candidate.Account),

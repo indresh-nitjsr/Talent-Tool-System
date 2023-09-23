@@ -49,6 +49,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Email", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Mobile", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "CurrentCompany", DataLength = 50, AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "SkillSet", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "Experience", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Location", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Decimal, ColumnName = "CTC", AllowNull = false },
@@ -71,17 +72,12 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             }
             else
             {
-                Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{ReferralId}{Status}{Manager}{Account}{TimeStamp}",
+                Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{SkillSet}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{ReferralId}{Status}{Manager}{Account}{TimeStamp}",
                     candidate.CandidateId, candidate.CandidateName, candidate.Email, candidate.Mobile, candidate.CurrentCompany,
-                    candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod, 
+                    candidate.SkillSet, candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod, 
                     candidate.ReferralId, candidate.Status,candidate.Manager, candidate.Account, DateTime.Now
                     );
-                //Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{EmployeeID}{Status}{TimeStamp}",
-                //     candidate.CandidateId, candidate.CandidateName, candidate.Mobile, candidate.Email, candidate.CurrentCompany,
-                //     candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod,
-                //     candidate.EmployeeID, candidate.Status, DateTime.Now);
             }
-
         }
     }
 }

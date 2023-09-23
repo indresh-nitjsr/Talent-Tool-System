@@ -22,14 +22,14 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var StringValueConverter = new ValueConverter<IEnumerable<string>, string>(
+            /*var StringValueConverter = new ValueConverter<IEnumerable<string>, string>(
                                v => string.Join(',', v),
-                                              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+                                              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));*/
 
-            modelBuilder
+           /* modelBuilder
                 .Entity<Candidate>()
                 .Property(e => e.SkillSet)
-                .HasConversion(StringValueConverter);
+                .HasConversion(StringValueConverter);*/
 
 
             base.OnModelCreating(modelBuilder);
@@ -40,7 +40,7 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 Email = "indresh@gmail.com",
                 Mobile = "7823637281",
                 CurrentCompany = "Nexturn",
-                SkillSet = new List<string> { "C++", ".Net", "Sql Server"},
+                SkillSet = "C++,.Net,Sql Server",
                 YearOfExperience = 1,
                 Location = "Mirzapur",
                 CTC = 10,
@@ -59,7 +59,7 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 Email = "shobhit@gmail.com",
                 Mobile = "7823637281",
                 CurrentCompany = "Nexturn",
-                SkillSet = new List<string> { "C++", ".Net", "Sql Server" },
+                SkillSet = "C++,.Net,Sql Server",
                 YearOfExperience = 1,
                 Location = "Patna",
                 CTC = 10,
@@ -78,7 +78,7 @@ namespace TalentToolSystem.Services.CandidateAPI.Data
                 Email = "abuzar@gmail.com",
                 Mobile = "7823637281",
                 CurrentCompany = "Nexturn",
-                SkillSet = new List<string> { "C++", ".Net", "Sql Server" },
+                SkillSet = "C++,.Net,Sql Server",
                 YearOfExperience = 1,
                 Location = "Ranchi",
                 CTC = 10,

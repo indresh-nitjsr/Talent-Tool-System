@@ -22,7 +22,7 @@ namespace TalentToolSystem.Services.Search.Controllers
                 List<ResponseDTO> results = _searchService.SearchCandidates(requestDTO);
                 return Ok(results);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while processing your request.");
             }

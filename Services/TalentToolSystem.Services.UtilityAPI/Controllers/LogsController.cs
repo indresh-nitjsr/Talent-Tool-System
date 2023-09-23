@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using TalentToolSystem.Services.UtilityAPI.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using TalentToolSystem.Services.UtilityAPI.Models;
 using TalentToolSystem.Services.UtilityAPI.Repository;
 
