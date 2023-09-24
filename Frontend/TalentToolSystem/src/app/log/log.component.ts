@@ -148,6 +148,7 @@ export class LogComponent implements OnInit {
   isDemandNull = true
   ngOnInit(): void {
     this.navigationService.GetAllCandidateLogs().subscribe((res: any) => {
+      console.log(res);
       if (res && res.length > 0) {
         this.isCandidateNull = false;
         this.candidates = res;

@@ -39,7 +39,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Repository
                     var log = new CandidateLog()
                     {
                         CandidateId = (int)reader["CandidateId"],
-                        Name = (string)reader["Name"],
+                        CandidateName = (string)reader["CandidateName"],
                         Email = (string)reader["Email"],
                         Mobile = (string)reader["Mobile"],
                         CurrentCompany = (string)reader["CurrentCompany"],
