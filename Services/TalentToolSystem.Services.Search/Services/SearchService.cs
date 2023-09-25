@@ -1,20 +1,20 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using TalentToolSystem.Services.Search.DTO;
+using Microsoft.Extensions.Configuration;
 
 namespace TalentToolSystem.Services.Search.Services
 {
     public class SearchService : ISearchService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public SearchService(IHttpClientFactory httpClientFactory)
+
+        public SearchService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public List<CandidateDTO?> SearchCandidates(CandidateRequestDTO requestDTO)
@@ -25,28 +25,27 @@ namespace TalentToolSystem.Services.Search.Services
 
                 if (!string.IsNullOrEmpty(requestDTO.Account))
                 {
-                    filteredCandidates = filteredCandidates.Where(c =>
-                    c.Account.ToLower().Contains(requestDTO.Account.ToLower()) || c.Account.ToLower() == requestDTO.Account.ToLower()).ToList();
+                    filteredCandidates = filteredCandidates.Where(c => c.Account.ToLower().Contains(requestDTO.Account.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.CandidateName))
                 {
-                    filteredCandidates = filteredCandidates.Where(c => c.CandidateName.ToLower() == requestDTO.CandidateName.ToLower() || c.CandidateName.ToLower().Contains(requestDTO.CandidateName.ToLower())).ToList();
+                    filteredCandidates = filteredCandidates.Where(c => c.CandidateName.ToLower().Contains(requestDTO.CandidateName.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Manager))
                 {
-                    filteredCandidates = filteredCandidates.Where(c => c.Manager.ToLower() == requestDTO.Manager.ToLower() || c.Manager.ToLower().Contains(requestDTO.Manager.ToLower())).ToList();
+                    filteredCandidates = filteredCandidates.Where(c => c.Manager.ToLower().Contains(requestDTO.Manager.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Status))
                 {
-                    filteredCandidates = filteredCandidates.Where(c => c.Status.ToLower() == requestDTO.Status.ToLower() || c.Status.ToLower().Contains(requestDTO.Status.ToLower())).ToList();
+                    filteredCandidates = filteredCandidates.Where(c => c.Status.ToLower().Contains(requestDTO.Status.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Location))
                 {
-                    filteredCandidates = filteredCandidates.Where(c => c.Location.ToLower() == requestDTO.Location.ToLower() || c.Location.ToLower().Contains(requestDTO.Location.ToLower())).ToList();
+                    filteredCandidates = filteredCandidates.Where(c => c.Location.ToLower().Contains(requestDTO.Location.ToLower())).ToList();
                 }
 
                 if (requestDTO.ReferralId.HasValue)
@@ -72,32 +71,32 @@ namespace TalentToolSystem.Services.Search.Services
                 if (!string.IsNullOrEmpty(requestDTO.Account))
                 {
                     filteredDemands = filteredDemands.Where(c =>
-                    c.Account_Name.ToLower().Contains(requestDTO.Account.ToLower()) || c.Account_Name.ToLower() == requestDTO.Account.ToLower()).ToList();
+                    c.Account_Name.ToLower().Contains(requestDTO.Account.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Demand))
                 {
-                    filteredDemands = filteredDemands.Where(c => c.DemandName.ToLower() == requestDTO.Demand.ToLower() || c.DemandName.ToLower().Contains(requestDTO.Demand.ToLower())).ToList();
+                    filteredDemands = filteredDemands.Where(c => c.DemandName.ToLower().Contains(requestDTO.Demand.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Manager))
                 {
-                    filteredDemands = filteredDemands.Where(c => c.Manager.ToLower() == requestDTO.Manager.ToLower() || c.Manager.ToLower().Contains(requestDTO.Manager.ToLower())).ToList();
+                    filteredDemands = filteredDemands.Where(c => c.Manager.ToLower().Contains(requestDTO.Manager.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Status))
                 {
-                    filteredDemands = filteredDemands.Where(c => c.Status.ToLower() == requestDTO.Status.ToLower() || c.Status.ToLower().Contains(requestDTO.Status.ToLower())).ToList();
+                    filteredDemands = filteredDemands.Where(c => c.Status.ToLower().Contains(requestDTO.Status.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Location))
                 {
-                    filteredDemands = filteredDemands.Where(c => c.Location.ToLower() == requestDTO.Location.ToLower() || c.Location.ToLower().Contains(requestDTO.Location.ToLower())).ToList();
+                    filteredDemands = filteredDemands.Where(c => c.Location.ToLower().Contains(requestDTO.Location.ToLower())).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.EmployeeType))
                 {
-                    filteredDemands = filteredDemands.Where(c => c.EmployeeType.ToLower() == requestDTO.EmployeeType.ToLower() || c.Location.ToLower().Contains(requestDTO.EmployeeType.ToLower())).ToList();
+                    filteredDemands = filteredDemands.Where(c => c.EmployeeType.ToLower().Contains(requestDTO.EmployeeType.ToLower())).ToList();
                 }
 
 
@@ -119,7 +118,8 @@ namespace TalentToolSystem.Services.Search.Services
 
                 var searchResults = new List<CandidateDTO>();
 
-                var candidateResponse = httpClient.GetAsync("https://localhost:7095/api/Candidate/getcandidatelist").Result;
+                var candidateApiUrl = _configuration.GetSection("ApiEndpoints:CandidateApiUrl").Value;
+                var candidateResponse = httpClient.GetAsync($"{candidateApiUrl}/getcandidatelist").Result;
 
                 if (candidateResponse.IsSuccessStatusCode)
                 {
@@ -152,13 +152,14 @@ namespace TalentToolSystem.Services.Search.Services
 
                 var searchResults = new List<DemandDTO>();
 
-                var candidateResponse = httpClient.GetAsync("https://localhost:7296/api/Demand/getdemandlist").Result;
+                var DemandApiUrl = _configuration.GetSection("ApiEndpoints:DemandApiUrl").Value;
+                var demandsResponse = httpClient.GetAsync($"{DemandApiUrl}/getdemandlist").Result;
 
-                if (candidateResponse.IsSuccessStatusCode)
+                if (demandsResponse.IsSuccessStatusCode)
                 {
-                    candidateResponse.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    demandsResponse.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                    var responseJson = candidateResponse.Content.ReadAsStringAsync().Result;
+                    var responseJson = demandsResponse.Content.ReadAsStringAsync().Result;
                     var demands = JsonConvert.DeserializeObject<List<DemandDTO>>(responseJson);
                     searchResults.AddRange(demands);
                 }
