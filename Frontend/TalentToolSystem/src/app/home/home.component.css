@@ -52,16 +52,27 @@
 
   .togglebtn{
     font-weight: 400;
-    font-size: 15px;
-    background: none;
-    margin: 0;
-    margin-right: 15rem;
-    border: 0;
-    border-bottom: 1px solid #009879;
+    font-size: 14px;
     cursor: pointer;
+
+    margin-right: 200px;
   }
 
-  .togglebtn:hover{
-    background-color: #009879 !important;
+  .search{
+    background-color: #009879;
     color: #fff;
+  }
+
+  .rightalign{
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+    margin-right: 100px;
+    margin-bottom: 0;
+  }
+
+  .table-container{
+    clear: right;
+    margin-top: 0;
   }

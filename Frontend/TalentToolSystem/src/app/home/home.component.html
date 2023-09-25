@@ -2,7 +2,7 @@
     <div class="container">
       <div class="togglebar">
         <h4 class="text-left">Search</h4>
-        <button class="text-right btn togglebtn" (click)="toggleSearch()">{{ isCandidateSearch ? 'Demand Search' : 'Candidate Search' }}</button>
+        <button class="btn btn-primary togglebtn" (click)="toggleSearch()">{{ isCandidateSearch ? 'Demand Search' : 'Candidate Search' }}</button>
       </div>
       <form *ngIf="isCandidateSearch" [formGroup]="candidateForm">
         <div class="row">
@@ -30,13 +30,13 @@
                   <input type="text" class="form-control" id="Location" name="Location" formControlName="Location" />
               </div>
               <div class="form-group">
-                  <label for="ReferralId">Employee Id</label>
+                  <label for="ReferralId">Referral Id</label>
                   <input type="number" class="form-control" id="ReferralId" name="ReferralId" formControlName="ReferralId" />
               </div>
           </div>
         </div>
         <div class="text-left">
-          <button type="button" class="btn btn-primary btn-sm" (click)="submitCandidateForm()" > Search </button>
+          <button type="button" class="btn search btn-sm" (click)="submitCandidateForm()" > Search </button>
           <button type="button" class="btn btn-primary btn-sm" (click)="clearForm()" > Clear </button>
         </div>
       </form>
@@ -71,12 +71,15 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary btn-sm" (click)="submitDemandForm()">Search</button>
+        <button type="button" class="btn search btn-sm" (click)="submitDemandForm()">Search</button>
         <button type="button" class="btn btn-primary btn-sm" (click)="clearForm()"> Clear </button>
       </form>
     </div>
+    <div>
+      <button class="btn btn-primary rightalign" *ngIf="formdataArray.length > 0" (click)="exportToExcel()">Export to Excel</button>
+    </div>
     <div class="table-container" >
-      <table class="styled-table" *ngIf="isCandidateSearch">
+      <table class="styled-table" *ngIf="isCandidateSearch  && formdataArray.length > 0">
         <thead>
           <tr>
             <th>SI.No</th>
@@ -93,7 +96,7 @@
             <th>CTC</th>
             <th>Location</th>
             <th>Notice Period</th>
-            <th>Employee Id</th>
+            <th>Referral Id</th>
           </tr>
         </thead>
         <tbody>
@@ -116,13 +119,14 @@
           </tr>
         </tbody>
       </table>
-      <table class="styled-table" *ngIf="!isCandidateSearch">
+      <table class="styled-table" *ngIf="!isCandidateSearch  && formdataArray.length > 0">
         <thead>
           <tr>
             <th>SI.No</th>
             <th>Demand Name</th>
-            <th>Email</th>
             <th>Account</th>
+            <th>Email</th>
+            <th>Skill Set</th>
             <th>Manager</th>
             <th>Open Positions</th>
             <th>Experience</th>
@@ -131,15 +135,15 @@
             <th>Employee Type</th>
             <th>Status</th>
             <th>Location</th>
-            <!-- <th>Skill Set</th> -->
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let dataForm of formdataArray; let i = index;">
             <td>{{ i + 1 }}</td>
             <td>{{ dataForm.demandName }}</td>
-            <td>{{ dataForm.email }}</td>
             <td>{{ dataForm.account_Name }}</td>
+            <td>{{ dataForm.email }}</td>
+            <td>{{ dataForm.skills.join(', ') }}</td>
             <td>{{ dataForm.manager }}</td>
             <td>{{ dataForm.openPosition }}</td>
             <td>{{ dataForm.experience }}</td>
@@ -147,8 +151,7 @@
             <td>{{ dataForm.noticePeriod }}</td>
             <td>{{ dataForm.employeeType }}</td>
             <td>{{ dataForm.status }}</td>
-            <td>{{ dataForm.location }}</td>
-            <!-- <td *ngFor="let skill of dataForm.skills"></td> -->
+            <td>{{ dataForm.location}}</td>
           </tr>
         </tbody>
       </table>

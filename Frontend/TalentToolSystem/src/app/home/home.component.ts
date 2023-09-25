@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import * as XLSX from 'xlsx';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +32,7 @@ export class HomeComponent {
   demandDataArray: any[] = []; 
   formdataArray: any[] = [];
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private searchService: SearchService) {
       this.candidateForm = this.formBuilder.group({
         Account: [''],
         Manager: [''],
@@ -51,6 +53,7 @@ export class HomeComponent {
 
   toggleSearch() {
     this.isCandidateSearch = !this.isCandidateSearch;
+    this.formdataArray = []
   }
 
   submitCandidateForm() {
@@ -62,9 +65,7 @@ export class HomeComponent {
       }
     }
 
-    const apiUrl = `https://localhost:7019/api/search/SearchCandidates`;
-
-    this.http.get<any[]>(apiUrl, { params: queryParams }).subscribe((response) => {
+    this.searchService.searchCandidates(queryParams).subscribe((response) => {
       this.formdataArray = response;
     });
 
@@ -78,12 +79,20 @@ export class HomeComponent {
       }
     }
 
-    const apiUrl = `https://localhost:7019/api/search/SearchDemands`;
-
-    this.http.get<any[]>(apiUrl, { params: queryParams }).subscribe((response) => {
+    this.searchService.searchDemands(queryParams).subscribe((response) => {
       this.formdataArray = response;
     });
   }
+
+  exportToExcel() {
+    if(this.formdataArray.length === 0){ return; }
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.formdataArray);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'SearchResults');
+  
+    XLSX.writeFile(wb, 'search-results.xlsx');
+  }
+  
 
   clearForm() {
     if (this.isCandidateSearch) {
