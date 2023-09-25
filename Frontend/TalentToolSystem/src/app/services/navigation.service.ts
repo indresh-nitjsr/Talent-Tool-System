@@ -9,8 +9,8 @@ import { CandidateComponent } from '../candidate/candidate.component';
 export class NavigationService {
   logBaseUrl = 'https://localhost:7046/api/Logs/';
   candidateBaseUrl = 'https://localhost:7095/api/Candidate/';
-  // demandBaseUrl = "https://localhost:7296/api/Demand/";
-  constructor(private http: HttpClient) { }
+  demandBaseUrl = "https://localhost:7296/api/Demand/";
+  constructor(private http: HttpClient) {}
 
   GetAllCandidateLogs() {
     let url = this.logBaseUrl + 'GetAllCandidateLogs';
@@ -38,5 +38,25 @@ export class NavigationService {
   UpdateCandidate(candidate: any) {
     let url = this.candidateBaseUrl + 'updatecandidate';
     return this.http.put(url, candidate, { responseType: 'text' });
+  }
+
+//***************************** 
+
+  
+  GetAllDemand() {
+    let url = this.demandBaseUrl + 'getdemandlist';
+    return this.http.get<any[]>(url);
+  }
+  DeleteDemand(demand: any) {
+    let url = `${this.demandBaseUrl}deletedemand?demandId=${demand.demandId}`;
+    return this.http.delete<any>(url);
+  }
+  CreateDemand(demand: any) {
+    let url = this.demandBaseUrl + 'adddemand';
+    return this.http.post<any>(url, demand, { responseType: 'json' });
+  }
+  UpdateDemand(demand: any) {
+    let url = this.demandBaseUrl + 'updatedemand';
+    return this.http.put(url, demand, { responseType: 'text' });
   }
 }

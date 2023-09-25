@@ -12,8 +12,8 @@ using TalentToolSystem.Services.DemandAPI.Data;
 namespace TalentToolSystem.Services.DemandAPI.Migrations
 {
     [DbContext(typeof(DemandContext))]
-    [Migration("20230921050611_Initial")]
-    partial class Initial
+    [Migration("20230925065539_Initial2")]
+    partial class Initial2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,8 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                     b.Property<string>("Manager")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("MaxBudget")
-                        .HasColumnType("float");
+                    b.Property<int>("MaxBudget")
+                        .HasColumnType("int");
 
                     b.Property<int>("NoticePeriod")
                         .HasColumnType("int");
@@ -90,10 +90,10 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "C++,.Net,Sql Server",
                             Status = "Selected"
                         },
                         new
@@ -106,10 +106,10 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "C++,.Net,Sql Server",
                             Status = "Selected"
                         },
                         new
@@ -122,10 +122,10 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "C++,.Net,Sql Server",
                             Status = "Selected"
                         });
                 });
