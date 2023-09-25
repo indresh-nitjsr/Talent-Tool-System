@@ -25,6 +25,7 @@ export class NavigationService {
   }
   GetAllCandidate() {
     let url = this.candidateBaseUrl + 'getcandidatelist';
+    //let url = "https://localhost:7071/api/Candidate/getcandidatelist";
     return this.http.get<any[]>(url);
   }
   DeleteCandidate(candidate: any) {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ICandidate } from '../model';
 import { NavigationService } from '../services/navigation.service';
-import { FormBuilder, FormGroup,FormControl, Validators,ValidationErrors,AbstractControl  } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
 function mobileNumberValidator(control: AbstractControl): ValidationErrors | null {
-  const mobileNumber = control.value;  
+  const mobileNumber = control.value;
   const mobileNumberPattern = /^[0-9]{10}$/; // Please enter exactly 10 digits
   if (!mobileNumberPattern.test(mobileNumber)) {
     return { invalidMobileNumber: true };
@@ -21,8 +21,8 @@ function mobileNumberValidator(control: AbstractControl): ValidationErrors | nul
 
 export class CandidateComponent implements OnInit {
   dataForm!: FormGroup;
- 
-// ******************************************
+
+  // ******************************************
   view: 'candidate' = 'candidate';
   candidates: ICandidate[] = [];
   candidate: ICandidate = {
@@ -41,9 +41,9 @@ export class CandidateComponent implements OnInit {
     status: '',
     manager: 'Gunjan',
     account: 'Nexturn',
-};
+  };
 
-  constructor(private navigationService: NavigationService,private fb: FormBuilder) {}
+  constructor(private navigationService: NavigationService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
@@ -56,32 +56,33 @@ export class CandidateComponent implements OnInit {
       YearsOfExperience: [''],
       CTC: [''],
       ECTC: [''],
-      MaxNoticePeriod:[''],
+      MaxNoticePeriod: [''],
       Location: [''],
       EmployeeID: [''],
       Status: [''],
     });
     this.navigationService.GetAllCandidate().subscribe((res: any) => {
       this.candidates = res;
-    }); 
+    });
   }
-  DeleteCandidate(candidate:ICandidate){
-    this.navigationService.DeleteCandidate(candidate).subscribe((res:any)=>{
-      this.candidate=res;
-    }); 
+  DeleteCandidate(candidate: ICandidate) {
+    this.navigationService.DeleteCandidate(candidate).subscribe((res: any) => {
+      this.candidate = res;
+    });
   }
   CreateCandidate(candidate: ICandidate) {
     this.navigationService.CreateCandidate(candidate).subscribe((res: any) => {
-        this.candidate=res;       
-    });   
+      this.candidate = res;
+    });
+    this.ngOnInit();
   }
-  isEdit(candidate:ICandidate){
-    this.candidate=candidate;
+  isEdit(candidate: ICandidate) {
+    this.candidate = candidate;
   }
-  UpdateCandidate(candidate:ICandidate){   
-    this.navigationService.UpdateCandidate(candidate).subscribe((res:any)=>{
-      this.candidate=res;
-    }); 
-  } 
-  
+  UpdateCandidate(candidate: ICandidate) {
+    this.navigationService.UpdateCandidate(candidate).subscribe((res: any) => {
+      this.candidate = res;
+    });
+  }
+
 }

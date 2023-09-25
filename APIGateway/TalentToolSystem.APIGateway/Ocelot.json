@@ -1,7 +1,8 @@
 {
   "Routes": [
+    // Utility WebAPI
     {
-      "DownstreamPathTemplate": "/api/Location",
+      "DownstreamPathTemplate": "/api/Logs/GetAllCandidateLogs",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -9,12 +10,27 @@
           "Port": 7046
         }
       ],
-      "UpstreamPathTemplate": "/api/Location",
+      "UpstreamPathTemplate": "/api/Logs/GetAllCandidateLogs",
       "UpstreamHttpMethod": [ "GET" ]
-
     },
     {
-      "DownstreamPathTemplate": "/api/Candidate",
+      "DownstreamPathTemplate": "/api/Logs/GetAllDemandLogs",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7046
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Logs/GetAllDemandLogs",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+
+
+    // Candidate WebAPI
+    {
+      "DownstreamPathTemplate": "/api/Candidate/getcandidatelist",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -22,9 +38,63 @@
           "Port": 7095
         }
       ],
-      "UpstreamPathTemplate": "/api/Candidate",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
-
+      "UpstreamPathTemplate": "/api/Candidate/getcandidatelist",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Candidate/getcandidatebyid",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7095
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Candidate/getcandidatebyid",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Candidate/addcandidate",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7095
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Candidate/addcandidate",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Candidate/updatecandidate",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7095
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Candidate/updatecandidate",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Candidate/deletecandidate",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7095
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Candidate/deletecandidate",
+      "UpstreamHttpMethod": [ "DELETE" ]
     }
+
+
+    //Demand WebAPI
+
+
+
+    //Search WebAPI
   ]
 }

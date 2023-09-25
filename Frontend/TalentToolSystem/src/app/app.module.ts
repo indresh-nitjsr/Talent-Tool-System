@@ -14,13 +14,15 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'demand', component: DemandComponent },
   { path: 'candidate', component: CandidateComponent },
-  { path: 'log', component: LogComponent }
+  { path: 'log', component: LogComponent },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const routes: Routes = [
     DemandComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
