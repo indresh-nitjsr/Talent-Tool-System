@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { ILocation } from '../model';
-import { CandidateComponent } from '../candidate/candidate.component';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
+  /*************************************************************************
+   Base URLs
+  **************************************************************************/
   logBaseUrl = 'https://localhost:7046/api/Logs/';
   candidateBaseUrl = 'https://localhost:7095/api/Candidate/';
-  // demandBaseUrl = "https://localhost:7296/api/Demand/";
+  demandBaseUrl = "https://localhost:7296/api/Demand/";
+
+  //constructor
   constructor(private http: HttpClient) { }
 
+
+  /*************************************************************************
+   Logs Operations
+  **************************************************************************/
   GetAllCandidateLogs() {
     let url = this.logBaseUrl + 'GetAllCandidateLogs';
     let data = this.http.get<any[]>(url);
@@ -23,9 +31,13 @@ export class NavigationService {
     let data = this.http.get<any[]>(url);
     return data;
   }
+
+
+  /*************************************************************************
+   Candidate Operations
+  **************************************************************************/
   GetAllCandidate() {
     let url = this.candidateBaseUrl + 'getcandidatelist';
-    //let url = "https://localhost:7071/api/Candidate/getcandidatelist";
     return this.http.get<any[]>(url);
   }
   DeleteCandidate(candidate: any) {
@@ -39,5 +51,27 @@ export class NavigationService {
   UpdateCandidate(candidate: any) {
     let url = this.candidateBaseUrl + 'updatecandidate';
     return this.http.put(url, candidate, { responseType: 'text' });
+  }
+
+
+
+  /*************************************************************************
+   Demand Operations
+  **************************************************************************/
+  GetAllDemand() {
+    let url = this.demandBaseUrl + 'getdemandlist';
+    return this.http.get<any[]>(url);
+  }
+  DeleteDemand(demand: any) {
+    let url = `${this.demandBaseUrl}deletedemand?demandId=${demand.demandId}`;
+    return this.http.delete<any>(url);
+  }
+  CreateDemand(demand: any) {
+    let url = this.demandBaseUrl + 'adddemand';
+    return this.http.post<any>(url, demand, { responseType: 'json' });
+  }
+  UpdateDemand(demand: any) {
+    let url = this.demandBaseUrl + 'updatedemand';
+    return this.http.put(url, demand, { responseType: 'text' });
   }
 }

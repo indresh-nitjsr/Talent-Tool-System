@@ -1,7 +1,9 @@
 <div class="container">
   <div class="container">
     <div class="togglebar">
-      <h4 class="text-left">Search</h4>
+      <h4 class="text-left">
+        {{ !isCandidateSearch ? "Demand Search" : "Candidate Search" }}
+      </h4>
       <button class="text-right btn togglebtn" (click)="toggleSearch()">
         {{ isCandidateSearch ? "Demand Search" : "Candidate Search" }}
       </button>
@@ -176,7 +178,7 @@
   <div class="table-container">
     <table class="styled-table" *ngIf="isCandidateSearch">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>SI.No</th>
           <th>Candidate Name</th>
           <th>Account</th>
@@ -192,10 +194,11 @@
           <th>Location</th>
           <th>Notice Period</th>
           <th>Employee Id</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody *ngFor="let dataForm of formdataArray; let i = index">
-        <tr>
+        <tr class="text-center">
           <td>{{ i + 1 }}</td>
           <td>{{ dataForm.candidateName }}</td>
           <td>{{ dataForm.account }}</td>
@@ -211,25 +214,17 @@
           <td>{{ dataForm.location }}</td>
           <td>{{ dataForm.noticePeriod }}</td>
           <td>{{ dataForm.referralId }}</td>
+          <td class="text-center d-flex">
+            <fa-icon class="btn btn-primary" [icon]="view"></fa-icon>
+            <fa-icon class="btn btn-primary" [icon]="edit"></fa-icon>
+            <fa-icon class="btn btn-danger" [icon]="delete"></fa-icon>
+          </td>
         </tr>
-        <!-- <tr>
-            <td colspan="15" class="text-center">
-              <div
-                class="btn-group d-flex justify-content-center align-items-center"
-              >
-                <button type="button" class="btn btn-primary btn-sm">View</button>
-                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-primary btn-sm">
-                  Delete
-                </button>
-              </div>
-            </td>
-          </tr> -->
       </tbody>
     </table>
     <table class="styled-table" *ngIf="!isCandidateSearch">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>SI.No</th>
           <th>Demand Name</th>
           <th>Email</th>
@@ -242,11 +237,15 @@
           <th>Employee Type</th>
           <th>Status</th>
           <th>Location</th>
+          <th>Action</th>
           <!-- <th>Skill Set</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dataForm of formdataArray; let i = index">
+        <tr
+          class="text-center"
+          *ngFor="let dataForm of formdataArray; let i = index"
+        >
           <td>{{ i + 1 }}</td>
           <td>{{ dataForm.demandName }}</td>
           <td>{{ dataForm.email }}</td>
@@ -259,7 +258,11 @@
           <td>{{ dataForm.employeeType }}</td>
           <td>{{ dataForm.status }}</td>
           <td>{{ dataForm.location }}</td>
-          <!-- <td *ngFor="let skill of dataForm.skills"></td> -->
+          <td class="text-center d-flex">
+            <fa-icon class="btn btn-primary" [icon]="view"></fa-icon>
+            <fa-icon class="btn btn-primary" [icon]="edit"></fa-icon>
+            <fa-icon class="btn btn-danger" [icon]="delete"></fa-icon>
+          </td>
         </tr>
       </tbody>
     </table>

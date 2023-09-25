@@ -30,7 +30,7 @@ namespace TalentToolSystem.Services.DemandAPI.Service
                  new SqlParameter("@Status", demand.Status),
                  new SqlParameter("@SkillName", skillsParameter),
                  new SqlParameter("@Location", demand.Location),
-                 new SqlParameter("@AccountName", demand.Account_Name),
+                 new SqlParameter("@AccountName", demand.AccountName),
            };
 
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));
@@ -90,7 +90,7 @@ namespace TalentToolSystem.Services.DemandAPI.Service
                  new SqlParameter("@Status", demand.Status),
                  new SqlParameter("@SkillName", skillsParameter),
                  new SqlParameter("@Location", demand.Location),
-                 new SqlParameter("@AccountName", demand.Account_Name)
+                 new SqlParameter("@AccountName", demand.AccountName)
            };
 
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));

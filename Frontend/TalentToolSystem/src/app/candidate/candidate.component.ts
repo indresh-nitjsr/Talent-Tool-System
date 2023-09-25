@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ICandidate } from '../model';
 import { NavigationService } from '../services/navigation.service';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+
 
 function mobileNumberValidator(control: AbstractControl): ValidationErrors | null {
   const mobileNumber = control.value;
@@ -21,6 +23,8 @@ function mobileNumberValidator(control: AbstractControl): ValidationErrors | nul
 
 export class CandidateComponent implements OnInit {
   dataForm!: FormGroup;
+  edit = faEdit;
+  delete = faTrash;
 
   // ******************************************
   view: 'candidate' = 'candidate';
@@ -62,6 +66,7 @@ export class CandidateComponent implements OnInit {
       Status: [''],
     });
     this.navigationService.GetAllCandidate().subscribe((res: any) => {
+      console.log(res);
       this.candidates = res;
     });
   }

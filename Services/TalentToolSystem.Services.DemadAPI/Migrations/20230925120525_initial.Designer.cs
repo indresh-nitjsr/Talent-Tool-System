@@ -12,8 +12,8 @@ using TalentToolSystem.Services.DemandAPI.Data;
 namespace TalentToolSystem.Services.DemandAPI.Migrations
 {
     [DbContext(typeof(DemandContext))]
-    [Migration("20230921050611_Initial")]
-    partial class Initial
+    [Migration("20230925120525_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("DemandId"));
 
-                    b.Property<string>("Account_Name")
+                    b.Property<string>("AccountName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DemandName")
@@ -58,8 +58,8 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                     b.Property<string>("Manager")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("MaxBudget")
-                        .HasColumnType("float");
+                    b.Property<int>("MaxBudget")
+                        .HasColumnType("int");
 
                     b.Property<int>("NoticePeriod")
                         .HasColumnType("int");
@@ -83,49 +83,49 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                         new
                         {
                             DemandId = 1,
-                            Account_Name = "Amazon",
+                            AccountName = "Amazon",
                             DemandName = "Python Developer",
                             Email = "nexturn@gmail.com",
                             EmployeeType = "FTE",
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "Python, Relationa Database",
                             Status = "Selected"
                         },
                         new
                         {
                             DemandId = 2,
-                            Account_Name = "Amazon",
+                            AccountName = "Amazon",
                             DemandName = "Java Developer",
                             Email = "nexturn@gmail.com",
                             EmployeeType = "FTE",
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "Python, Relationa Database",
                             Status = "Selected"
                         },
                         new
                         {
                             DemandId = 3,
-                            Account_Name = "Amazon",
+                            AccountName = "Amazon",
                             DemandName = ".Net Developer",
                             Email = "nexturn@gmail.com",
                             EmployeeType = "FTE",
                             Experience = 1,
                             Location = "Hyderabad",
                             Manager = "Gunjan",
-                            MaxBudget = 10.0,
+                            MaxBudget = 10,
                             NoticePeriod = 2,
                             OpenPosition = 1,
-                            Skills = "Python,Relationa Database",
+                            Skills = "Python, Relationa Database",
                             Status = "Selected"
                         });
                 });

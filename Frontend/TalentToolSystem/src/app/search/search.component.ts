@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search',
@@ -8,6 +9,10 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  edit = faEdit;
+  delete = faTrash;
+  view = faEye;
+
   isCandidateSearch: boolean = true;
   candidateForm: any = {
     Account: '',

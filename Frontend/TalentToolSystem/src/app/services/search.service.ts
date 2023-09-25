@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchService {
-  constructor(private http: HttpClient) {}
-    BASE_URL = 'https://localhost:7019/api/search/'
+  constructor(private http: HttpClient) { }
+  BASE_URL = 'https://localhost:7019/api/search/'
 
   searchCandidates(queryParams: any): Observable<any[]> {
     const apiUrl = `${this.BASE_URL}SearchCandidates`;

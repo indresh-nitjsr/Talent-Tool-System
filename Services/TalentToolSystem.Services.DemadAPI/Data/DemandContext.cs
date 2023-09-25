@@ -29,21 +29,12 @@ namespace TalentToolSystem.Services.DemandAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var StringValueConverter = new ValueConverter<IEnumerable<string>, string>(
-                               v => string.Join(',', v),
-                                              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
-            modelBuilder
-                .Entity<Demand>()
-                .Property(e => e.Skills)
-                .HasConversion(StringValueConverter);
-
-
             modelBuilder.Entity<Demand>().HasData(new Demand
             {
                 DemandId = 1,
                 DemandName = "Python Developer",
                 Email = "nexturn@gmail.com",
-                Account_Name = "Amazon",
+                AccountName = "Amazon",
                 Manager = "Gunjan",
                 OpenPosition = 1,
                 Experience = 1,
@@ -51,7 +42,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] {"Python", "Relationa Database"},
+                Skills = "Python, Relationa Database",
                 Location = "Hyderabad"
             });
 
@@ -60,7 +51,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 DemandId = 2,
                 DemandName = "Java Developer",
                 Email = "nexturn@gmail.com",
-                Account_Name = "Amazon",
+                AccountName = "Amazon",
                 Manager = "Gunjan",
                 OpenPosition = 1,
                 Experience = 1,
@@ -68,7 +59,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] { "Python", "Relationa Database" },
+                Skills = "Python, Relationa Database",
                 Location = "Hyderabad"
             });
 
@@ -77,7 +68,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 DemandId = 3,
                 DemandName = ".Net Developer",
                 Email = "nexturn@gmail.com",
-                Account_Name = "Amazon",
+                AccountName = "Amazon",
                 Manager = "Gunjan",
                 OpenPosition = 1,
                 Experience = 1,
@@ -85,7 +76,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] { "Python", "Relationa Database" },
+                Skills = "Python, Relationa Database",
                 Location = "Hyderabad"
             });
         }

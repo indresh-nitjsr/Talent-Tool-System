@@ -72,7 +72,7 @@ namespace TalentToolSystem.Services.Search.Services
                 if (!string.IsNullOrEmpty(requestDTO.Account))
                 {
                     filteredDemands = filteredDemands.Where(c =>
-                    c.Account_Name.ToLower().Contains(requestDTO.Account.ToLower()) || c.Account_Name.ToLower() == requestDTO.Account.ToLower()).ToList();
+                    c.AccountName.ToLower().Contains(requestDTO.Account.ToLower()) || c.AccountName.ToLower() == requestDTO.Account.ToLower()).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(requestDTO.Demand))
@@ -99,8 +99,6 @@ namespace TalentToolSystem.Services.Search.Services
                 {
                     filteredDemands = filteredDemands.Where(c => c.EmployeeType.ToLower() == requestDTO.EmployeeType.ToLower() || c.Location.ToLower().Contains(requestDTO.EmployeeType.ToLower())).ToList();
                 }
-
-
                 return filteredDemands;
             }
             catch (Exception ex)

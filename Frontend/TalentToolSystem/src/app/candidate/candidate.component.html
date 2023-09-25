@@ -1,57 +1,103 @@
 <div class="container">
   <div class="container mt-5">
     <h4 class="text-left">Candidate Form</h4>
-    <form [formGroup]="dataForm" >
+    <form [formGroup]="dataForm">
       <div class="row">
         <div class="col-md-6">
-          
           <div class="form-group">
             <label for="CandidateName">Candidate Name</label>
-            <input type="text" class="form-control" id="CandidateName" name="CandidateName" 
-               [(ngModel)]="candidate.candidateName" formControlName="CandidateName" />
-            <mat-error *ngIf="
+            <input
+              type="text"
+              class="form-control"
+              id="CandidateName"
+              name="CandidateName"
+              [(ngModel)]="candidate.candidateName"
+              formControlName="CandidateName"
+            />
+            <mat-error
+              *ngIf="
                 dataForm.get('CandidateName')?.hasError('required') &&
                 dataForm.get('CandidateName')?.touched
-              ">
+              "
+            >
               Candidate Name is Required
             </mat-error>
           </div>
 
           <div class="form-group">
             <label for="Mobile">Mobile</label>
-            <input type="text" class="form-control" id="Mobile" name="Mobile" [(ngModel)]="candidate.mobile" formControlName="Mobile" />
-            <mat-error *ngIf="
+            <input
+              type="text"
+              class="form-control"
+              id="Mobile"
+              name="Mobile"
+              [(ngModel)]="candidate.mobile"
+              formControlName="Mobile"
+            />
+            <mat-error
+              *ngIf="
                 dataForm.get('Mobile')?.hasError('required') &&
                 dataForm.get('Mobile')?.touched
-              ">
+              "
+            >
               Mobile is Required
             </mat-error>
-            <mat-error *ngIf="
-            dataForm.get('Mobile')?.hasError('Mobile') &&
-            dataForm.get('Mobile')?.touched
-          ">
-          Invalid format Please enter a 10-digit number
-        </mat-error>
+            <mat-error
+              *ngIf="
+                dataForm.get('Mobile')?.hasError('Mobile') &&
+                dataForm.get('Mobile')?.touched
+              "
+            >
+              Invalid format Please enter a 10-digit number
+            </mat-error>
           </div>
 
           <div class="form-group">
             <label for="SkillSet">Skill Sets</label>
-            <input type="text" class="form-control" id="SkillSet" name="SkillSet" [(ngModel)]="candidate.skillSet" formControlName="SkillSets" />            
+            <input
+              type="text"
+              class="form-control"
+              id="SkillSet"
+              name="SkillSet"
+              [(ngModel)]="candidate.skillSet"
+              formControlName="SkillSets"
+            />
           </div>
 
           <div class="form-group">
             <label for="CTC">CTC</label>
-            <input type="number" class="form-control" id="CTC" name="CTC" [(ngModel)]="candidate.ctc" formControlName="CTC" />
+            <input
+              type="number"
+              class="form-control"
+              id="CTC"
+              name="CTC"
+              [(ngModel)]="candidate.ctc"
+              formControlName="CTC"
+            />
           </div>
 
           <div class="form-group">
             <label for="ECTC">ECTC</label>
-            <input type="number" class="form-control" id="ECTC" name="ECTC" [(ngModel)]="candidate.ectc" formControlName="ECTC" />           
+            <input
+              type="number"
+              class="form-control"
+              id="ECTC"
+              name="ECTC"
+              [(ngModel)]="candidate.ectc"
+              formControlName="ECTC"
+            />
           </div>
-          
+
           <div class="form-group">
             <label for="EmployeeID">Employee ID</label>
-            <input type="number" class="form-control" id="EmployeeID" name="EmployeeID" [(ngModel)]="candidate.referralId" formControlName="EmployeeID" />            
+            <input
+              type="number"
+              class="form-control"
+              id="EmployeeID"
+              name="EmployeeID"
+              [(ngModel)]="candidate.referralId"
+              formControlName="EmployeeID"
+            />
           </div>
         </div>
 
@@ -59,68 +105,115 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="Email">E Mail</label>
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="candidate.email" formControlName="email" />
-            <mat-error *ngIf="
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              [(ngModel)]="candidate.email"
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="
                 dataForm.get('email')?.hasError('required') &&
                 dataForm.get('email')?.touched
-              ">
+              "
+            >
               E Mail is Required
             </mat-error>
-            <mat-error *ngIf="
+            <mat-error
+              *ngIf="
                 dataForm.get('email')?.hasError('email') &&
                 dataForm.get('email')?.touched
-              ">
+              "
+            >
               Invalid E-Mail Format
             </mat-error>
           </div>
 
           <div class="form-group">
             <label for="CurrentCompany">Current Company</label>
-            <input type="text" class="form-control" id="CurrentCompany" name="CurrentCompany"
-             [(ngModel)]="candidate.currentCompany" formControlName="CurrentCompany" />            
+            <input
+              type="text"
+              class="form-control"
+              id="CurrentCompany"
+              name="CurrentCompany"
+              [(ngModel)]="candidate.currentCompany"
+              formControlName="CurrentCompany"
+            />
           </div>
 
           <div class="form-group">
-            <label for="YearsOfExperience">Years Of Experience</label>
-            <input type="number" class="form-control" id="YearsOfExperience" name="YearsOfExperience"
-             [(ngModel)]="candidate.yearOfExperience" formControlName="YearsOfExperience" />            
+            <label for="YearsOfExperience">Experience (In Year)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="YearsOfExperience"
+              name="YearsOfExperience"
+              [(ngModel)]="candidate.yearOfExperience"
+              formControlName="YearsOfExperience"
+            />
           </div>
 
           <div class="form-group">
             <label for="Location">Location</label>
-            <input type="text" class="form-control" id="Location" name="Location" [(ngModel)]="candidate.location" formControlName="Location" />            
+            <input
+              type="text"
+              class="form-control"
+              id="Location"
+              name="Location"
+              [(ngModel)]="candidate.location"
+              formControlName="Location"
+            />
           </div>
 
           <div class="form-group">
             <label for="noticePeriod"> Max. Notice Period </label>
-            <input type="number" class="form-control" id="MaxNoticePeriod" name="MaxNoticePeriod"
-              [(ngModel)]="candidate.noticePeriod" formControlName="MaxNoticePeriod" />            
+            <input
+              type="number"
+              class="form-control"
+              id="MaxNoticePeriod"
+              name="MaxNoticePeriod"
+              [(ngModel)]="candidate.noticePeriod"
+              formControlName="MaxNoticePeriod"
+            />
           </div>
 
           <div class="form-group">
             <label for="Status">Status</label>
-            <input type="text" class="form-control" id="Status" name="Status" [(ngModel)]="candidate.status" formControlName="Status" />           
+            <input
+              type="text"
+              class="form-control"
+              id="Status"
+              name="Status"
+              [(ngModel)]="candidate.status"
+              formControlName="Status"
+            />
           </div>
-          
         </div>
       </div>
-        <div class="text-left">
-          <button
-          type="button" class="btn btn-primary btn-sm" (click)="CreateCandidate(candidate)"
-            [disabled]="dataForm.invalid" >
-            Add Candidate
-          </button>
+      <div class="text-left">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="CreateCandidate(candidate)"
+          [disabled]="dataForm.invalid"
+        >
+          Add Candidate
+        </button>
 
-          <button type="button" class="btn btn-primary btn-sm" (click)="UpdateCandidate(candidate)"
-            [disabled]="dataForm.invalid">
-            Update Candidate
-          </button>
-
-        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="UpdateCandidate(candidate)"
+          [disabled]="dataForm.invalid"
+        >
+          Update Candidate
+        </button>
+      </div>
     </form>
   </div>
 </div>
-
 
 <div class="container">
   <hr />
@@ -128,14 +221,14 @@
     <h1 class="styled-heading">Candidate Info</h1>
     <table class="styled-table">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>SI.No</th>
           <th>Candidate Name</th>
           <th>Email</th>
           <th>Mobile</th>
           <th>Current Company</th>
           <th>Skill Set</th>
-          <th>Year Of Experience</th>
+          <th>Experience (In Year)</th>
           <th>Location</th>
           <th>CTC</th>
           <th>ECTC</th>
@@ -147,7 +240,10 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let candidate of candidates; let i = index">
+        <tr
+          class="text-center"
+          *ngFor="let candidate of candidates; let i = index"
+        >
           <td>{{ i + 1 }}</td>
           <td>{{ candidate.candidateName }}</td>
           <td>{{ candidate.email }}</td>
@@ -161,15 +257,21 @@
           <td>{{ candidate.noticePeriod }}</td>
           <td>{{ candidate.referralId }}</td>
           <td>{{ candidate.status }}</td>
-          <td>
-            
-            <button type="button" class="btn btn-danger btn-sm" (click)="DeleteCandidate(candidate)">
-              🗑⃨̅̅̅ 
+          <td class="d-flex">
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="DeleteCandidate(candidate)"
+            >
+              <fa-icon [icon]="edit"></fa-icon>
             </button>
-            <button type="button" class="btn btn-primary btn-sm" (click)="isEdit(candidate)">
-              📝
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              (click)="isEdit(candidate)"
+            >
+              <fa-icon [icon]="delete"></fa-icon>
             </button>
-                     <!-- 🗑️  🚯  🚮 &#128465;  🗑 🗑⃨̅̅̅  🛒 ✍🏻  📝--> 
           </td>
         </tr>
       </tbody>

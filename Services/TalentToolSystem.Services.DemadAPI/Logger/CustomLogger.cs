@@ -51,7 +51,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Manager", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "OpenPosition", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "Experience", AllowNull = false },
-                new SqlColumn { DataType = SqlDbType.Decimal, ColumnName = "MaxBudget", AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.Int, ColumnName = "MaxBudget", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "NoticePeriod", AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "EmployeeType", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Status", DataLength = 50, AllowNull = false },
@@ -70,14 +70,10 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             else
             {
                 Log.Logger.Information("{DemandName}{Email}{AccountName}{Manager}{OpenPosition}{Experience}{MaxBudget}{NoticePeriod}{EmployeeType}{Status}{Location}{TimeStamp}",
-                    demand.DemandName, demand.Email, demand.Account_Name, demand.Manager,
+                    demand.DemandName, demand.Email, demand.AccountName, demand.Manager,
                     demand.OpenPosition, demand.Experience, demand.NoticePeriod,
                     demand.EmployeeType, demand.Status, demand.Location, DateTime.Now
                     );
-                //Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{EmployeeID}{Status}{TimeStamp}",
-                //     candidate.CandidateId, candidate.CandidateName, candidate.Mobile, candidate.Email, candidate.CurrentCompany,
-                //     candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod,
-                //     candidate.EmployeeID, candidate.Status, DateTime.Now);
             }
 
         }
