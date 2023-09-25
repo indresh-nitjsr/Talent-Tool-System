@@ -16,7 +16,7 @@ namespace TalentToolSystem.Services.DemandAPI.Service
 
         public async Task<int> CreateDemand(Demand demand)
         {
-            string skillsParameter = string.Join(",", demand.Skills);
+            /*string skillsParameter = string.Join(",", demand.Skills);*/
             var parameters = new List<SqlParameter>
            {
                  new SqlParameter("@DemandName", demand.DemandName),
@@ -28,15 +28,15 @@ namespace TalentToolSystem.Services.DemandAPI.Service
                  new SqlParameter("@NoticePeriod", demand.NoticePeriod),
                  new SqlParameter("@EmployeeType", demand.EmployeeType),
                  new SqlParameter("@Status", demand.Status),
-                 new SqlParameter("@SkillName", skillsParameter),
+                 new SqlParameter("@Skills", demand.Skills),
                  new SqlParameter("@Location", demand.Location),
-                 new SqlParameter("@AccountName", demand.Account_Name),
+                 new SqlParameter("@Account_Name", demand.Account_Name),
            };
 
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));
 
             var result = await _dbContext.Database.ExecuteSqlRawAsync(
-                $"exec CreateNewDemand {parameterNames}",
+                $"exec AddNewDemand {parameterNames}",
                 parameters.ToArray()
             );
 
@@ -44,15 +44,14 @@ namespace TalentToolSystem.Services.DemandAPI.Service
 
         }
 
-        public async Task<int> DeleteDemand(int DemandId)
+        public async Task<bool> DeleteDemand(int DemandId)
         {
             var result = await Task.Run(() => _dbContext.Database.ExecuteSqlInterpolatedAsync($"DeleteDemand {DemandId}"));
-            /*if(result > 0)
+            if (result > 0)
             {
                 return true;
             }
-            return false;*/
-            return result;
+            return false;
         }
 
         public async Task<List<Demand>> GetAllDemand()
@@ -75,7 +74,7 @@ namespace TalentToolSystem.Services.DemandAPI.Service
 
         public async Task<int> UpdateDemand(Demand demand)
         {
-            string skillsParameter = string.Join(",", demand.Skills);
+            /*string skillsParameter = string.Join(",", demand.Skills);*/
             var parameters = new List<SqlParameter>
            {
                  new SqlParameter("@DemandId", demand.DemandId),
@@ -88,9 +87,9 @@ namespace TalentToolSystem.Services.DemandAPI.Service
                  new SqlParameter("@NoticePeriod", demand.NoticePeriod),
                  new SqlParameter("@EmployeeType", demand.EmployeeType),
                  new SqlParameter("@Status", demand.Status),
-                 new SqlParameter("@SkillName", skillsParameter),
+                 new SqlParameter("@Skills", demand.Skills),
                  new SqlParameter("@Location", demand.Location),
-                 new SqlParameter("@AccountName", demand.Account_Name)
+                 new SqlParameter("@Account_Name", demand.Account_Name)
            };
 
             var parameterNames = string.Join(",", parameters.Select(p => p.ParameterName));
@@ -103,5 +102,7 @@ namespace TalentToolSystem.Services.DemandAPI.Service
             return result;
 
         }
+
+      
     }
 }

@@ -41,9 +41,9 @@ namespace TalentToolSystem.Services.DemandAPI.Migrations
                 columns: new[] { "DemandId", "Account_Name", "DemandName", "Email", "EmployeeType", "Experience", "Location", "Manager", "MaxBudget", "NoticePeriod", "OpenPosition", "Skills", "Status" },
                 values: new object[,]
                 {
-                    { 1, "Amazon", "Python Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" },
-                    { 2, "Amazon", "Java Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" },
-                    { 3, "Amazon", ".Net Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "Python,Relationa Database", "Selected" }
+                    { 1, "Amazon", "Python Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "C++,.Net,Sql Server", "Selected" },
+                    { 2, "Amazon", "Java Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "C++,.Net,Sql Server", "Selected" },
+                    { 3, "Amazon", ".Net Developer", "nexturn@gmail.com", "FTE", 1, "Hyderabad", "Gunjan", 10.0, 2, 1, "C++,.Net,Sql Server", "Selected" }
                 });
         }
 

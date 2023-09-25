@@ -8,6 +8,6 @@ namespace TalentToolSystem.Services.DemandAPI.Service
         public Task<List<Demand>> GetAllDemand();
         public Task<IEnumerable<Demand>> GetDemandById(int DemandId);
         public Task<int> UpdateDemand(Demand demand);
-        public Task<int> DeleteDemand(int DemandId);
+        public Task<bool> DeleteDemand(int DemandId);
     }
 }

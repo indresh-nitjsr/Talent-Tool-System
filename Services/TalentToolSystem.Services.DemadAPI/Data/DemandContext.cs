@@ -12,9 +12,16 @@ namespace TalentToolSystem.Services.DemandAPI.Data
     public class DemandContext:DbContext
     {
         public DbSet<Demand> demands { get; set; }
+
+        public DemandContext(DbContextOptions<DemandContext> options) : base(options)
+        {
+
+        }
+
        
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+       
+       /* protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             if (!options.IsConfigured)
             {
@@ -25,19 +32,19 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 string? connectionString = configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(connectionString);
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var StringValueConverter = new ValueConverter<IEnumerable<string>, string>(
-                               v => string.Join(',', v),
-                                              v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
-            modelBuilder
-                .Entity<Demand>()
-                .Property(e => e.Skills)
-                .HasConversion(StringValueConverter);
+            /* var StringValueConverter = new ValueConverter<IEnumerable<string>, string>(
+                                v => string.Join(',', v),
+                                               v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+             modelBuilder
+                 .Entity<Demand>()
+                 .Property(e => e.Skills)
+                 .HasConversion(StringValueConverter);*/
 
-
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Demand>().HasData(new Demand
             {
                 DemandId = 1,
@@ -51,7 +58,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] {"Python", "Relationa Database"},
+                Skills = "C++,.Net,Sql Server",
                 Location = "Hyderabad"
             });
 
@@ -68,7 +75,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] { "Python", "Relationa Database" },
+                Skills = "C++,.Net,Sql Server",
                 Location = "Hyderabad"
             });
 
@@ -85,7 +92,7 @@ namespace TalentToolSystem.Services.DemandAPI.Data
                 NoticePeriod = 2,
                 EmployeeType = "FTE",
                 Status = "Selected",
-                Skills = new[] { "Python", "Relationa Database" },
+                Skills = "C++,.Net,Sql Server",
                 Location = "Hyderabad"
             });
         }

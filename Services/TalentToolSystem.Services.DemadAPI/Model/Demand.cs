@@ -5,10 +5,7 @@ namespace TalentToolSystem.Services.DemandAPI.Model
 {
     public class Demand
     {
-        public Demand()
-        {
-            Skills = new HashSet<string>();
-        }
+       
         [Key]
         public int? DemandId { get; set; }
 
@@ -24,11 +21,11 @@ namespace TalentToolSystem.Services.DemandAPI.Model
         public string? Manager { get; set; }
         public int OpenPosition { get; set; } = 0;
         public int? Experience { get; set; }
-        public double MaxBudget { get; set; } = 0;
+        public int MaxBudget { get; set; } = 0;
         public int NoticePeriod { get; set; } = 0;
         public string EmployeeType { get; set; } = "";
         public string Status { get; set; } = "";
-        public IEnumerable<string> Skills { get; set; } = null!;
+        public string Skills { get; set; } = null!;
         public string Location { get; set; } = "";
     }
 }

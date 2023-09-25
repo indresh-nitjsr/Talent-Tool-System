@@ -100,14 +100,14 @@ namespace TalentToolSystem.Services.DemandAPI.Controllers
 
         // DELETE api/<DemandController>/5
         [HttpDelete("deletedemand")]
-        public async Task<int> Delete(int demandid)
+        public async Task<bool> Delete(int demandid)
         {
             try
             {
                 IEnumerable<Demand> demands = await demandService.GetDemandById(demandid);
                 Demand demand = demands.FirstOrDefault();
                 var response = await demandService.DeleteDemand(demandid);
-                /*if (response)
+               /* if (response)
                 {
                     CustomLogger.Information(demand);
                 }*/

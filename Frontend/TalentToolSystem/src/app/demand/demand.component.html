@@ -1,299 +1,171 @@
 <div class="container">
-  <div class="container">
-    <h4 class="text-left">Demand Info</h4>
-    <form [formGroup]="dataForm">
+  <div class="container mt-5">
+    <h4 class="text-left">Demand Form</h4>
+    <form [formGroup]="dataForm" >
       <div class="row">
         <div class="col-md-6">
+          
           <div class="form-group">
             <label for="DemandName">Demand Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="DemandName"
-              name="DemandName"
-              formControlName="DemandName"
-            />
-            <mat-error
-              *ngIf="
+            <input type="text" class="form-control" id="DemandName" name="DemandName" 
+               [(ngModel)]="demand.demandName" formControlName="DemandName" />
+            <mat-error *ngIf="
                 dataForm.get('DemandName')?.hasError('required') &&
                 dataForm.get('DemandName')?.touched
-              "
-            >
+              ">
               Demand Name is Required
             </mat-error>
-          </div>
+          </div>         
+
           <div class="form-group">
-            <label for="Manager">Manager</label>
-            <input
-              type="text"
-              class="form-control"
-              id="Manager"
-              name="Manager"
-              formControlName="Manager"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('Manager')?.hasError('required') &&
-                dataForm.get('Manager')?.touched
-              "
-            >
-              Manager Name is Required
-            </mat-error>
+            <label for="Account_Name">Account_Name</label>
+            <input type="text" class="form-control" id="Account_Name" name="Account_Name" [(ngModel)]="demand.account_Name" formControlName="Account_Name" />            
           </div>
+
           <div class="form-group">
-            <label for="SkillSet">Skill Sets</label>
-            <input
-              type="text"
-              class="form-control"
-              id="SkillSet"
-              name="SkillSet"
-              formControlName="SkillSets"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('SkillSets')?.hasError('required') &&
-                dataForm.get('SkillSets')?.touched
-              "
-            >
-              Skill Sets are Required
-            </mat-error>
+            <label for="OpenPosition">Open Position</label>
+            <input type="number" class="form-control" id="OpenPosition" name="OpenPosition" [(ngModel)]="demand.openPosition" formControlName="OpenPosition" />
           </div>
+
           <div class="form-group">
-            <label for="MaxBudget">Max Budget</label>
-            <input
-              type="number"
-              class="form-control"
-              id="MaxBudget"
-              name="MaxBudget"
-              formControlName="MaxBudget"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('MaxBudget')?.hasError('required') &&
-                dataForm.get('MaxBudget')?.touched
-              "
-            >
-              Maximum Budget is Required
-            </mat-error>
+            <label for="NoticePeriod">Notice Period</label>
+            <input type="number" class="form-control" id="NoticePeriod" name="NoticePeriod" [(ngModel)]="demand.noticePeriod" formControlName="NoticePeriod" />           
           </div>
+
           <div class="form-group">
-            <label for="MaxNoticePeriod">Max.Notice Period</label>
-            <input
-              type="number"
-              class="form-control"
-              id="MaxNoticePeriod"
-              name="MaxNoticePeriod"
-              formControlName="MaxNoticePeriod"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('MaxNoticePeriod')?.hasError('required') &&
-                dataForm.get('MaxNoticePeriod')?.touched
-              "
-            >
-              Maximum Notice Period is Required
-            </mat-error>
+            <label for="Status">Status</label>
+            <input type="text" class="form-control" id="Status" name="Status" [(ngModel)]="demand.status" formControlName="Status" />           
           </div>
+
+          <div class="form-group">
+            <label for="Location">Location</label>
+            <input type="text" class="form-control" id="Location" name="Location" [(ngModel)]="demand.location" formControlName="Location" />            
+          </div>
+
         </div>
 
         <!-- Right Column -->
         <div class="col-md-6">
           <div class="form-group">
-            <label for="AccountName">E Mail</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              formControlName="email"
-            />
-            <mat-error
-              *ngIf="
+            <label for="Email">E Mail</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="demand.email" formControlName="email" />
+            <mat-error *ngIf="
                 dataForm.get('email')?.hasError('required') &&
                 dataForm.get('email')?.touched
-              "
-            >
-              E Mail Id is Required
+              ">
+              E Mail is Required
             </mat-error>
-            <mat-error
-              *ngIf="
+            <mat-error *ngIf="
                 dataForm.get('email')?.hasError('email') &&
                 dataForm.get('email')?.touched
-              "
-            >
+              ">
               Invalid E-Mail Format
             </mat-error>
           </div>
+
           <div class="form-group">
-            <label for="AccountName">Account Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="AccountName"
-              name="AccountName"
-              formControlName="AccountName"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('AccountName')?.hasError('required') &&
-                dataForm.get('AccountName')?.touched
-              "
-            >
-              Account Name is Required
-            </mat-error>
+            <label for="Manager">Manager</label>
+            <input type="text" class="form-control" id="Manager" name="Manager"
+             [(ngModel)]="demand.manager" formControlName="Manager" />            
+          </div>
+
+          <div class="form-group">
+            <label for="Experience">Experience</label>
+            <input type="text" class="form-control" id="Experience" name="Experience"
+             [(ngModel)]="demand.experience" formControlName="Experience" />            
+          </div>
+
+          <div class="form-group">
+            <label for="Max Budget">Max Budget</label>
+            <input type="number" class="form-control" id="Max Budget" name="Max Budget"
+             [(ngModel)]="demand.maxBudget" formControlName="Max Budget" />            
+          </div>
+
+
+          <div class="form-group">
+            <label for="EmployeeType">Employee Type </label>
+            <input type="text" class="form-control" id="EmployeeType" name="EmployeeType"
+              [(ngModel)]="demand.employeeType" formControlName="EmployeeType" />            
           </div>
           <div class="form-group">
-            <label for="OpenPosition">Open Position</label>
-            <input
-              type="number"
-              class="form-control"
-              id="OpenPosition"
-              name="OpenPosition"
-              formControlName="OpenPosition"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('OpenPosition')?.hasError('required') &&
-                dataForm.get('OpenPosition')?.touched
-              "
-            >
-              Open Position is Required
-            </mat-error>
+            <label for="Skills">Skills </label>
+            <input type="text" class="form-control" id="Skills" name="Skills"
+              [(ngModel)]="demand.skills" formControlName="Skills" />            
           </div>
-          <div class="form-group">
-            <label for="YearsOfExperience">Years Of Experience</label>
-            <input
-              type="number"
-              class="form-control"
-              id="YearsOfExperience"
-              name="YearsOfExperience"
-              formControlName="YearsOfExperience"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('YearsOfExperience')?.hasError('required') &&
-                dataForm.get('YearsOfExperience')?.touched
-              "
-            >
-              Years Of Experience is Required
-            </mat-error>
-          </div>
-          <div class="form-group">
-            <label for="Location">Location</label>
-            <input
-              type="text"
-              class="form-control"
-              id="Location"
-              name="Location"
-              formControlName="Location"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('Location')?.hasError('required') &&
-                dataForm.get('Location')?.touched
-              "
-            >
-              Location is Required
-            </mat-error>
-          </div>
-          <div class="form-group">
-            <label for="EmploymentType">Employment Type</label>
-            <input
-              type="text"
-              class="form-control"
-              id="EmploymentType"
-              name="EmploymentType"
-              formControlName="EmploymentType"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('EmploymentType')?.hasError('required') &&
-                dataForm.get('EmploymentType')?.touched
-              "
-            >
-              Employment Type is Required
-            </mat-error>
-          </div>
-          <div class="form-group">
-            <label for="Status">Status</label>
-            <input
-              type="text"
-              class="form-control"
-              id="Status"
-              name="Status"
-              formControlName="Status"
-            />
-            <mat-error
-              *ngIf="
-                dataForm.get('Status')?.hasError('required') &&
-                dataForm.get('Status')?.touched
-              "
-            >
-              Status is Required
-            </mat-error>
-          </div>
+         
+          
         </div>
       </div>
+        <div class="text-left">
+          <button
+          type="button" class="btn btn-primary btn-sm" (click)="CreateDemand(demand)"
+            [disabled]="dataForm.invalid" >
+            Add Demand
+          </button>
 
-      <div class="text-left">
-        <button
-          type="button"
-          class="btn btn-primary btn-sm"
-          (click)="submitForm()"
-        >
-          Save
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary btn-sm"
-          (click)="clearForm()"
-        >
-          Cancel
-        </button>
-      </div>
+          <button type="button" class="btn btn-primary btn-sm" (click)="UpdateDemand(demand)"
+            [disabled]="dataForm.invalid">
+            Update Demand
+          </button>
+
+        </div>
     </form>
   </div>
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>SI.No</th>
-        <th>Demand Name</th>
-        <th>Location</th>
-        <th>Manager</th>
-        <th>Max Budget</th>
-        <th>Status</th>
-        <th>Account Name</th>
-        <th>Skill Set</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let dataForm of formdataArray; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ dataForm.DemandName }}</td>
-        <td>{{ dataForm.Location }}</td>
-        <td>{{ dataForm.Manager }}</td>
-        <td>{{ dataForm.MaxBudget }}</td>
-        <td>{{ dataForm.Status }}</td>
-        <td>{{ dataForm.AccountName }}</td>
-        <td>{{ dataForm.SkillSets }}</td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-primary btn-sm"
-            (click)="editRecord(dataForm)"
-          >
-            Edit
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-sm"
-            (click)="deleteRecord(dataForm.serialNo)"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+</div>
+
+
+<div class="container">
+  <hr />
+  <div *ngIf="view === 'demand'">
+    <h1 class="styled-heading">Demand Info</h1>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>SI.No</th>
+          <th>Demand Name</th>
+          <th>Email</th>
+          <th>Account_Name</th>
+          <th>Manager</th>         
+          <th>Open Position</th>          
+          <th>Experience</th>  
+          <th>Max Budget</th>         
+          <th>Notice Period</th>
+          <th>Employee Type</th>
+          <th>Status</th>
+          <th>Skills</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let demand of demands; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ demand.demandName }}</td>
+          <td>{{ demand.email }}</td>
+          <td>{{ demand.account_Name }}</td>
+          <td>{{ demand.manager }}</td>
+          <td>{{ demand.openPosition }}</td>
+          <td>{{ demand.experience }}</td>
+          <td>{{ demand.maxBudget }}</td> 
+          <td>{{ demand.noticePeriod }}</td>
+          <td>{{ demand.employeeType }}</td>
+          <td>{{ demand.status }}</td>
+          <td>{{ demand.skills }}</td>         
+          <td>{{ demand.location }}</td>
+          
+          <td>
+            
+            <button type="button" class="btn btn-danger btn-sm" (click)="DeleteDemand(demand)">
+              🗑⃨̅̅̅ 
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="isEdit(demand)">
+              📝
+            </button>
+                     <!-- 🗑️  🚯  🚮 &#128465;  🗑 🗑⃨̅̅̅  🛒 ✍🏻  📝--> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
