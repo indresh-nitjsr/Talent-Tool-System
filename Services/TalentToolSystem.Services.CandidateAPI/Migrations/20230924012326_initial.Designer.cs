@@ -11,8 +11,8 @@ using TalentToolSystem.Services.CandidateAPI.Data;
 namespace TalentToolSystem.Services.CandidateAPI.Migrations
 {
     [DbContext(typeof(CandidateContext))]
-    [Migration("20230923015040_Initial")]
-    partial class Initial
+    [Migration("20230924012326_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

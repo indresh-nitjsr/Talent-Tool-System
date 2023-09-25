@@ -8,13 +8,6 @@
     padding: 20px;
   }
 
-  header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    border-radius: 15px 15px 0px 0px;
-  }
-
   button {
     margin: auto;
     padding: 10px 20px;

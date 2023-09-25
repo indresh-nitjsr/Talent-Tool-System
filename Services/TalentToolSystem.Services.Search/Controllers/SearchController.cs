@@ -14,12 +14,12 @@ namespace TalentToolSystem.Services.Search.Controllers
             _searchService = searchService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> SearchCandidates([FromQuery] RequestDTO requestDTO)
+        [HttpGet("SearchCandidates")]
+        public async Task<IActionResult> Get([FromQuery] CandidateRequestDTO requestDTO)
         {
             try
             {
-                List<ResponseDTO> results = _searchService.SearchCandidates(requestDTO);
+                List<CandidateDTO?> results = _searchService.SearchCandidates(requestDTO);
                 return Ok(results);
             }
             catch (Exception)
@@ -27,6 +27,21 @@ namespace TalentToolSystem.Services.Search.Controllers
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
+
+        [HttpGet("SearchDemands")]
+        public async Task<IActionResult> Get([FromQuery] DemandRequestDTO requestDTO)
+        {
+            try
+            {
+                List<DemandDTO?> results = _searchService.SearchDemands(requestDTO);
+                return Ok(results);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
+
     }
 
 }

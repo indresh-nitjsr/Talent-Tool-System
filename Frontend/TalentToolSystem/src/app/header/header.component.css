@@ -8,6 +8,10 @@
     height: 70px;
   }
 
+  .logo:hover{
+    color: #45a049;
+  }
+
   .navbar a {
     color: #f2f2f2;
     text-decoration: none;
@@ -25,6 +29,11 @@
     font-weight: bold;
     color: #fff;
     margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .logo-icon{
+    display: flex;
   }
 
   .menu-icon {
@@ -62,6 +71,5 @@
     .menu-items a {
       display: block;
       padding: 10px 20px;
-      margin: 0;
     }
   }

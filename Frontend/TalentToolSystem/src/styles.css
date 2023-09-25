@@ -1,10 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
 
-html, body { height: 100%; }
+body { 
+  height: 100vh; 
+  width: 100vw;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .color {
     color: #009879;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .styled-heading {
     font-family: 'Arial', sans-serif;
@@ -12,6 +20,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 2em;
     color: #009879; 
     text-align: center; 
+  }
+
+  .table-container{
+    overflow-x: auto;
+    overflow-y: auto;
   }
   
   /* Table */
@@ -21,6 +34,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
+    max-height: 400px;
+    overflow-y: auto;
   }
   
   .styled-table thead tr {
@@ -44,4 +59,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 15px 15px 0px 0px;
   }

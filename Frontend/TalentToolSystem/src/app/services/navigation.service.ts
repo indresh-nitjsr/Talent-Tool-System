@@ -14,7 +14,8 @@ export class NavigationService {
 
   GetAllCandidateLogs() {
     let url = this.logBaseUrl + 'GetAllCandidateLogs';
-    return this.http.get<any[]>(url);
+    let data = this.http.get<any[]>(url);
+    return data;
   }
 
   GetAllDemandLogs() {

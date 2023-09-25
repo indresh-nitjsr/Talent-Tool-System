@@ -5,7 +5,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Models
     public class CandidateLog
     {
         public int CandidateId { get; set; }
-        public string Name { get; set; }
+        public string CandidateName { get; set; }
         public string Email { get; set; }
         public string Mobile { get; set; }
         public string CurrentCompany { get; set; }

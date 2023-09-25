@@ -45,7 +45,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             columnOptions.AdditionalColumns = new List<SqlColumn>
             {
                 new SqlColumn { DataType = SqlDbType.Int, ColumnName = "CandidateID", AllowNull = false},
-                new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Name",DataLength = 50, AllowNull = false },
+                new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "CandidateName",DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Email", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "Mobile", DataLength = 50, AllowNull = false },
                 new SqlColumn { DataType = SqlDbType.VarChar, ColumnName = "CurrentCompany", DataLength = 50, AllowNull = false },
@@ -72,7 +72,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             }
             else
             {
-                Log.Logger.Information("{CandidateID}{Name}{Email}{Mobile}{CurrentCompany}{SkillSet}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{ReferralId}{Status}{Manager}{Account}{TimeStamp}",
+                Log.Logger.Information("{CandidateID}{CandidateName}{Email}{Mobile}{CurrentCompany}{SkillSet}{Experience}{Location}{CTC}{ECTC}{NoticePeriod}{ReferralId}{Status}{Manager}{Account}{TimeStamp}",
                     candidate.CandidateId, candidate.CandidateName, candidate.Email, candidate.Mobile, candidate.CurrentCompany,
                     candidate.SkillSet, candidate.YearOfExperience, candidate.Location, candidate.CTC, candidate.ECTC, candidate.NoticePeriod, 
                     candidate.ReferralId, candidate.Status,candidate.Manager, candidate.Account, DateTime.Now
