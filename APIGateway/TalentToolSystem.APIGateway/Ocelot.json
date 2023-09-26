@@ -42,7 +42,7 @@
       "UpstreamHttpMethod": [ "GET" ]
     },
     {
-      "DownstreamPathTemplate": "/api/Candidate/getcandidatebyid",
+      "DownstreamPathTemplate": "/api/Candidate/getcandidatebyid?CandidateId={id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -50,7 +50,7 @@
           "Port": 7095
         }
       ],
-      "UpstreamPathTemplate": "/api/Candidate/getcandidatebyid",
+      "UpstreamPathTemplate": "/api/Candidate/getcandidatebyid?CandidateId={id}",
       "UpstreamHttpMethod": [ "GET" ]
     },
     {
@@ -78,7 +78,7 @@
       "UpstreamHttpMethod": [ "PUT" ]
     },
     {
-      "DownstreamPathTemplate": "/api/Candidate/deletecandidate",
+      "DownstreamPathTemplate": "/api/Candidate/deletecandidate?CandidateId={id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -88,13 +88,96 @@
       ],
       "UpstreamPathTemplate": "/api/Candidate/deletecandidate",
       "UpstreamHttpMethod": [ "DELETE" ]
-    }
+    },
 
 
     //Demand WebAPI
-
+    {
+      "DownstreamPathTemplate": "/api/Demand/getdemandlist",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Demand/getdemandlist",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Demand/getdemandbyid?DemandId={id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Demand/getdemandbyid?DemandId={id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Demand/adddemand",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Demand/adddemand",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Demand/updatedemand",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Demand/updatedemand",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Demand/deletedemand?DemandId={id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Demand/deletedemand?DemandId={id}",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
 
 
     //Search WebAPI
+    {
+      "DownstreamPathTemplate": "/api/search/SearchCandidates",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7019
+        }
+      ],
+      "UpstreamPathTemplate": "/api/search/SearchCandidates",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/search/SearchDemands",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7019
+        }
+      ],
+      "UpstreamPathTemplate": "/api/search/SearchDemands",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
   ]
 }

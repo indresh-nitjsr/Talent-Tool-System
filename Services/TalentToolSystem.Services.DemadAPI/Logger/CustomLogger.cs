@@ -71,7 +71,7 @@ namespace TalentToolSystem.Services.UtilityAPI.Logger
             {
                 Log.Logger.Information("{DemandName}{Email}{AccountName}{Manager}{OpenPosition}{Experience}{MaxBudget}{NoticePeriod}{EmployeeType}{Status}{Location}{TimeStamp}",
                     demand.DemandName, demand.Email, demand.AccountName, demand.Manager,
-                    demand.OpenPosition, demand.Experience, demand.NoticePeriod,
+                    demand.OpenPosition, demand.Experience, demand.MaxBudget, demand.NoticePeriod,
                     demand.EmployeeType, demand.Status, demand.Location, DateTime.Now
                     );
             }

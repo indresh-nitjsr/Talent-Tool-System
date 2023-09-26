@@ -107,10 +107,10 @@ namespace TalentToolSystem.Services.DemandAPI.Controllers
                 IEnumerable<Demand> demands = await demandService.GetDemandById(demandid);
                 Demand demand = demands.FirstOrDefault();
                 var response = await demandService.DeleteDemand(demandid);
-                /*if (response)
+                if (response > 0)
                 {
                     CustomLogger.Information(demand);
-                }*/
+                }
                 return response;
             }
             catch
