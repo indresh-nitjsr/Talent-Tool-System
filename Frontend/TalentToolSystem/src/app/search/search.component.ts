@@ -101,6 +101,8 @@ export class SearchComponent {
     if (Object.keys(queryParams).length > 0) {
       this.searchService.searchDemands(queryParams).subscribe((response) => {
         this.formdataArray = response;
+        console.log(this.formdataArray);
+        
       });
       this.NotFound()
     }else{
