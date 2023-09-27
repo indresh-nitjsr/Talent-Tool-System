@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faEye, faFileCsv } from '@fortawesome/free-solid-svg-icons';
+import * as XLSX from 'xlsx';
+import  {SearchService} from './../services/search.service'; 
+
 
 @Component({
   selector: 'app-search',
@@ -12,6 +15,7 @@ export class SearchComponent {
   edit = faEdit;
   delete = faTrash;
   view = faEye;
+  excel = faFileCsv;
 
   isCandidateSearch: boolean = true;
   candidateForm: any = {
@@ -34,8 +38,9 @@ export class SearchComponent {
   candidateDataArray: any[] = [];
   demandDataArray: any[] = [];
   formdataArray: any[] = [];
+  response: string = "";
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private searchService: SearchService) {
     this.candidateForm = this.formBuilder.group({
       Account: [''],
       Manager: [''],
@@ -55,6 +60,8 @@ export class SearchComponent {
   }
 
   toggleSearch() {
+    this.formdataArray = []
+    this.response = ""
     this.isCandidateSearch = !this.isCandidateSearch;
   }
 
@@ -66,29 +73,47 @@ export class SearchComponent {
         delete queryParams[key];
       }
     }
+    if (Object.keys(queryParams).length > 0) {
+      this.searchService.searchCandidates(queryParams).subscribe((response) => {
+        this.formdataArray = response;
+      });
+      this.NotFound()
+    }else{
+      this.response = "Enter the details for the Search"
+    }
+  }
 
-    const apiUrl = `https://localhost:7019/api/search/SearchCandidates`;
-
-    this.http.get<any[]>(apiUrl, { params: queryParams }).subscribe((response) => {
-      console.log(response);
-      this.formdataArray = response;
-    });
-
+  NotFound(){    
+    if(this.formdataArray.length < 0) {
+      if (this.isCandidateSearch) this.response = "No Candidates are found"
+      else this.response = "No Demands are found"
+    }
   }
 
   submitDemandForm() {
+    this.response = ""
     const queryParams: any = { ...this.demandForm.value };
     for (const key in queryParams) {
       if (queryParams[key] === null || queryParams[key] === '') {
         delete queryParams[key];
       }
     }
+    if (Object.keys(queryParams).length > 0) {
+      this.searchService.searchDemands(queryParams).subscribe((response) => {
+        this.formdataArray = response;
+      });
+      this.NotFound()
+    }else{
+      this.response = "Enter the details for the Search";
+    }
 
-    const apiUrl = `https://localhost:7019/api/search/SearchDemands`;
+  }
 
-    this.http.get<any[]>(apiUrl, { params: queryParams }).subscribe((response) => {
-      this.formdataArray = response;
-    });
+  exportToExcel() {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.formdataArray);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'SearchResults');
+    XLSX.writeFile(wb, 'search-results.xlsx');
   }
 
   clearForm() {
@@ -98,5 +123,6 @@ export class SearchComponent {
       this.demandForm.reset();
     }
     this.formdataArray = [];
+    this.response = "";
   }
 }

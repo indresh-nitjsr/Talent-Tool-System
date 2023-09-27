@@ -57,11 +57,21 @@
     margin: 0;
     margin-right: 15rem;
     border: 0;
-    border-bottom: 1px solid #009879;
-    cursor: pointer;
-  }
-
-  .togglebtn:hover{
     background-color: #009879 !important;
+    cursor: pointer;
     color: #fff;
   }
+
+   .results{
+     display: flex;
+     align-items: center;
+     flex-direction: row;
+     justify-content: space-between;
+     margin-bottom: 0;
+     padding-bottom: 0;
+   }
+
+   .results h3{
+    font-weight: 600;
+    color: #009879;
+   }

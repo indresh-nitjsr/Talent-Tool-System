@@ -175,8 +175,13 @@
       </button>
     </form>
   </div>
+  <p *ngIf="response !== ''">{{ response }}</p>
+  <div *ngIf="formdataArray.length > 0" class="results">
+    <h3>Results: </h3>
+    <fa-icon (click)="exportToExcel()" class="btn btn-primary" [icon]="excel"></fa-icon>
+  </div>
   <div class="table-container">
-    <table class="styled-table" *ngIf="isCandidateSearch">
+    <table class="styled-table" *ngIf="isCandidateSearch && formdataArray.length > 0">
       <thead>
         <tr class="text-center">
           <th>SI.No</th>
@@ -222,7 +227,7 @@
         </tr>
       </tbody>
     </table>
-    <table class="styled-table" *ngIf="!isCandidateSearch">
+    <table class="styled-table" *ngIf="!isCandidateSearch && formdataArray.length > 0">
       <thead>
         <tr class="text-center">
           <th>SI.No</th>
@@ -249,7 +254,7 @@
           <td>{{ i + 1 }}</td>
           <td>{{ dataForm.demandName }}</td>
           <td>{{ dataForm.email }}</td>
-          <td>{{ dataForm.account_Name }}</td>
+          <td>{{ dataForm.accountName }}</td>
           <td>{{ dataForm.manager }}</td>
           <td>{{ dataForm.openPosition }}</td>
           <td>{{ dataForm.experience }}</td>
