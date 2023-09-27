@@ -37,53 +37,53 @@ namespace TalentToolSystem.Services.UtilityAPI.Controllers
         }
 
         // POST api/<LocationController>
-        [HttpPost("CreateLocation")]
-        public async Task<object> Post([FromBody] Location location)
-        {
-            try
-            {
-                Location model = await _locationRepository.CreateUpdateLocation(location);
-                return location;
-            }
-            catch (Exception ex)
-            {
-                return new List<string>() { ex.ToString() };
-            }
+        //[HttpPost("CreateLocation")]
+        //public async Task<object> Post([FromBody] Location location)
+        //{
+        //    try
+        //    {
+        //        Location model = await _locationRepository.CreateUpdateLocation(location);
+        //        return location;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new List<string>() { ex.ToString() };
+        //    }
 
-        }
+        //}
 
         // PUT api/<LocationController>/5
-        [HttpPut("UpdateLocation/{id}")]
-        public async Task<object> Put([FromBody] Location location)
-        {
-            try
-            {
-                Location model = await _locationRepository.CreateUpdateLocation(location);
-                return model;
-            }
-            catch (Exception ex)
-            {
-                return new List<string>() { ex.ToString() };
-            }
-        }
+        //[HttpPut("UpdateLocation/{id}")]
+        //public async Task<object> Put([FromBody] Location location)
+        //{
+        //    try
+        //    {
+        //        Location model = await _locationRepository.CreateUpdateLocation(location);
+        //        return model;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new List<string>() { ex.ToString() };
+        //    }
+        //}
 
-        [HttpDelete("DeleteLocation/{id}")]
-        public async Task<object> Delete(int id)
-        {
-            try
-            {
-                Location location = await _locationRepository.GetLocationById(id);
-                bool IsDeleted = await _locationRepository.DeleteLocation(id);
-                if (IsDeleted)
-                {
-                    CustomLogger.Information(location);
-                }
-                return IsDeleted;
-            }
-            catch (Exception ex)
-            {
-                return new List<string>() { ex.ToString() };
-            }
-        }
+        //[HttpDelete("DeleteLocation/{id}")]
+        //public async Task<object> Delete(int id)
+        //{
+        //    try
+        //    {
+        //        Location location = await _locationRepository.GetLocationById(id);
+        //        bool IsDeleted = await _locationRepository.DeleteLocation(id);
+        //        if (IsDeleted)
+        //        {
+        //            CustomLogger.Information(location);
+        //        }
+        //        return IsDeleted;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new List<string>() { ex.ToString() };
+        //    }
+        //}
     }
 }

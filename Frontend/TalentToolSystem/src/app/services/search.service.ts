@@ -7,16 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class SearchService {
   constructor(private http: HttpClient) { }
-  BASE_URL = 'https://localhost:7019/api/search/'
+  BASE_URL = 'https://localhost:7019/api/search/';
+  gateWayBaseUrl = `https://localhost:7071/api/`;
 
   searchCandidates(queryParams: any): Observable<any[]> {
-    const apiUrl = `${this.BASE_URL}SearchCandidates`;
+    const apiUrl = `${this.gateWayBaseUrl}search/SearchCandidates`;
     const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<any[]>(apiUrl, { params });
   }
 
   searchDemands(queryParams: any): Observable<any[]> {
-    const apiUrl = `${this.BASE_URL}SearchDemands`;
+    const apiUrl = `${this.gateWayBaseUrl}search/SearchDemands`;
     const params = new HttpParams({ fromObject: queryParams });
     return this.http.get<any[]>(apiUrl, { params });
   }

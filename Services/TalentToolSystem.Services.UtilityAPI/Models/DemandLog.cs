@@ -13,11 +13,10 @@ namespace TalentToolSystem.Services.UtilityAPI.Models
         public string? Manager { get; set; }
         public int OpenPosition { get; set; } = 0;
         public int? Experience { get; set; }
-        public double MaxBudget { get; set; } = 0;
+        public int MaxBudget { get; set; } = 0;
         public int NoticePeriod { get; set; } = 0;
         public string EmployeeType { get; set; }
         public string Status { get; set; }
-        //public IEnumerable<string> Skills { get; set; }
         public string Location { get; set; }
         public DateTime TimeStamp { get; set; }
            

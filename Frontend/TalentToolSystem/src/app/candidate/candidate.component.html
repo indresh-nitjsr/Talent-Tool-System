@@ -260,15 +260,15 @@
           <td class="d-flex">
             <button
               type="button"
-              class="btn btn-danger btn-sm"
-              (click)="DeleteCandidate(candidate)"
+              class="btn btn-primary btn-sm"
+              (click)="isEdit(candidate)"
             >
               <fa-icon [icon]="edit"></fa-icon>
             </button>
             <button
               type="button"
-              class="btn btn-primary btn-sm"
-              (click)="isEdit(candidate)"
+              class="btn btn-danger btn-sm"
+              (click)="DeleteCandidate(candidate)"
             >
               <fa-icon [icon]="delete"></fa-icon>
             </button>

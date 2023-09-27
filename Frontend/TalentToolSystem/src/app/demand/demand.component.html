@@ -242,18 +242,19 @@
             <!-- <div> -->
             <button
               type="button"
-              class="btn btn-danger btn-sm"
-              (click)="DeleteDemand(demand)"
+              class="btn btn-primary btn-sm"
+              (click)="isEdit(demand)"
             >
               <fa-icon [icon]="edit"></fa-icon>
             </button>
             <button
               type="button"
-              class="btn btn-primary btn-sm"
-              (click)="isEdit(demand)"
+              class="btn btn-danger btn-sm"
+              (click)="DeleteDemand(demand)"
             >
               <fa-icon [icon]="delete"></fa-icon>
             </button>
+
             <!-- </div> -->
           </td>
         </tr>

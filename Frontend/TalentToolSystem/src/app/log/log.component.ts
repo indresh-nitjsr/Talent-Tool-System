@@ -148,22 +148,26 @@ export class LogComponent implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   message = "This is a dummy Data";
-  isCandidateNull = true;
-  isDemandNull = true
+  isCandidateNull = false;
+  isDemandNull = false
   ngOnInit(): void {
     this.navigationService.GetAllCandidateLogs().subscribe((res: any) => {
       console.log(res);
-      if (res && res.length > 0) {
-        this.isCandidateNull = false;
-        this.candidates = res;
-      }
+      this.candidates = res;
+      // if (res && res.length > 0) {
+      //   this.isCandidateNull = false;
+      //   this.candidates = res;
+      // }
     });
 
     this.navigationService.GetAllDemandLogs().subscribe((res: any) => {
-      if (res && res.length > 0) {
-        this.isDemandNull = false;
-        this.demands = res;
-      }
+      console.log(res);
+      this.demands = res;
+
+      // if (res && res.length > 0) {
+      //   this.isDemandNull = false;
+      //   this.demands = res;
+      // }
     });
   }
 }
