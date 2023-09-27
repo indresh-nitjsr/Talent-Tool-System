@@ -66,6 +66,7 @@ export class SearchComponent {
   }
 
   submitCandidateForm() {
+    this.response = ""
     const queryParams: any = { ...this.candidateForm.value };
 
     for (const key in queryParams) {
